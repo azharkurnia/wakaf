@@ -1,0 +1,25 @@
+{% extends "layout/base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <h3> <b class="mx-4"> PORTOFOLIO KAMI </b></h3>
+        </div>
+        <div class="row">
+            <h2 class="mx-4">Kami mengembangkan berbagai layanan yang memudahkan masyarakat</h2>
+        </div>
+        <div class="row">
+            <div class="px-5 owl-carousel">
+                <img src="{% static 'img/carousel2.png'%}">
+                <img src="{% static 'img/carousel1.png'%}">
+                <img src="{% static 'img/carousel3.png'%}">
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
