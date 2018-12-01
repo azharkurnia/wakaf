@@ -5,9 +5,9 @@ $(document).ready(function(){
 $('.owl-carousel').owlCarousel({
     autoplay:true,
     loop:true,
-    center:true,
     nav:true,
     autoWidth:true,
+    autoHeight:true,
     navText : ['<i class="fa fa-arrow-left" aria-hidden="true"></i>','<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
     responsive:{
         0:{
