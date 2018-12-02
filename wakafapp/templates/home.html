@@ -61,7 +61,7 @@
             <div class="card">
                 <div class="card-body">
                     <img class="mx-auto d-block img-card" src="{% static '/img/layanan4.png' %}">
-                    <div class="text-center"><h4><b>Layanan #4</b>    </h4></div>
+                    <div class="text-center"><h4><b>Layanan #4</b></h4></div>
                     <p class="card-text">Curabitur sodales diam ac leo tincidunt, non ultrices odio tincidunt. Mauris ipsum ante, imperdiet sit amet eros eget, aliquam vestibulum quam</p>
                 </div>
                 <div class="card-footer">
@@ -71,8 +71,37 @@
 
         </div>
     </div>
-    <div class="container-fluid bg-warning">
-        <p>loremloreerfnajnfrieaffrea</p> <p>azhar</p>
+    <div class="container-fluid py-3" style="background-color: 	#FFFFFF">
+        <p class="text-center mb-1"><b>CARA KAMI BEKERJA</b></p>
+        <h5 class="text-center mb-4"><b>Bagaimana WAKAF bekerja</b></h5>
+
+        <div class="card-deck py-2 px-3" id="cobain">
+
+            <div class="card">
+                <img class="card-img-top" src="{% static '/img/carakerja1.png' %}">
+                <div class="card-body">
+                                        <li class="label"><p class="tags">Wiraswasta</p></li>
+
+                    <div><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <img class="card-img-top" src="{% static '/img/carakerja2.png' %}">
+
+                <div class="card-body">
+                    <li class="label"><p class="tags">Bisnis</p></li>
+
+                    <div><h4><b>Business Re-engineering</b>    </h4></div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                </div>
+
+            </div>
+        </div>
+
+
     </div>
 
     <style>
@@ -120,6 +149,24 @@
             }
             .owl-dots {display: none;}
 
+        }
+        #cobain{
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .tags {
+            background: 	#EAF9F4;
+            text-align: center;
+            border-radius: 30px 30px 30px 30px;
+            color: #0bba89;
+            padding: 5px 10px;
+            font-size: 14px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .label {
+            display: inline-block;
         }
     </style>
 
