@@ -1,7 +1,6 @@
 stages:
   - deploy
 
-
 Deployment:
   image: ruby:2.4
   stage: deploy
