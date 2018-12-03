@@ -21,3 +21,9 @@ div.text-center > a:link {
     text-decoration: none;
 }
 
+#banner {
+    background-image: url("banner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
