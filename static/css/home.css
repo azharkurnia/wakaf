@@ -23,7 +23,7 @@ div.text-center > a:link {
 
 #banner {
     background-image: url("banner.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
