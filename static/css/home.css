@@ -15,15 +15,10 @@ div.text-center {
     back-color: #FFFFFF;
 }
 
-div.text-center > a:link {
-    color: white;
-    background-color: transparent;
-    text-decoration: none;
-}
-
 #banner {
     background-image: url("banner.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 

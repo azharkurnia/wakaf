@@ -61,48 +61,7 @@
             </div>
         </div>
     </div>
-
-
-    <div class="container-fluid py-3 bg-light">
-        <p class="text-center mb-1"><b>DONASI</b></p>
-        <h5 class="text-center mb-4"><b>Salurkan bantuan anda melalui donasi</b></h5>
-        <div class="container px-6 py-2 bg-white">
-            <div class="row">
-                <div class="col-md-6">
-
-                    <div class="card bg-light">
-                        <img class="card-img-top" src="{% static '/img/donasi.png' %}" alt="Card image">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>Bantu layanan kami berkembang</b></h5>
-                            <p class="card-text my-1">Wakaf berkomitmen untuk meningkatkan kualitas layanan yang kami miliki. Oleh karenanya, kami siap menerima uluran tangan anda untuk kegiatan usaha kami sehingga kami dapat memberikan yang terbaik</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center py-4">
-                        <h4><b>Jumlah Donasi</b></h4>
-                        <p class="mt-4">Masukkan nominal donasi minimal Rp 10.000 <br> dengan kelipatan ribuan (contoh: 15.000, 50.000)</p>
-                        <form action="/">
-
-                            <div class="input-group my-3" style="width: 50%; margin-left: 25%">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp</span>
-                                </div>
-                                <input type="number" class="form-control" id="nominal">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox"> Sembunyikan identitas saya (Anonim)
-                                </label>
-                            </div>
-                            <button class="btn" id="button-donasi"><strong>LANJUTKAN DONASI</strong></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="container-fluid py-3" style="background-color: white">
+    <div class="container-fluid py-3" style="background-color: 	#FAF6F3">
         <p class="text-center mb-1"><b>APA YANG DAPAT KAMI BANTU</b></p>
         <h5 class="text-center mb-4"><b>Kami menyediakan berbagai layanan untuk membantu usaha anda</b></h5>
 
@@ -111,7 +70,7 @@
             <div class="card">
                 <div class="card-body">
                     <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
-                    <div class="text-center"><h4><b>Layanan #1</b></h4></div>
+                    <div class="text-center"><h4><b>Layanan #1</b>    </h4></div>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
                 </div>
                 <div class="card-footer">
@@ -189,7 +148,7 @@
 
     <div class="container-fluid py-3 bg-light">
         <p class="text-center mb-1"><b>TESTIMONI</b></p>
-        <h5 class="text-center mb-4"><b>Kata mereka tentang WAKAF</b></h5>
+        <h5 class="text-center mb-4"><b>kata mereka tentang WAKAF</b></h5>
 
         <div class="card-deck py-2 px-3" id="testimoni">
 
@@ -235,10 +194,11 @@
                 <ul><p class="kerjasama" style="color: white">kami akan menghubungi anda kembali setelah anda meninggalkan pesan</p></ul>
             </div>
             <div class="col-lg-6 col-md-8 col-sm-8 p-lg-5">
-                <button class="btn btn-light" id="button-pesan"><strong>Tinggalkan Pesan</strong></button>
+                <button class="btn btn-light" id="button"><strong>Tinggalkan Pesan</strong></button>
             </div>
         </div>
     </div>
+
 
     <style>
         .owl-prev {
@@ -343,21 +303,7 @@
             height: 100%;
         }
 
-        div.text-center > a {
-            color: white;
-            font-weight: bolder;
 
-        }
-        div.text-center > a:link {
-            color: white;
-            background-color: transparent;
-            text-decoration: none;
-        }
-        #button-donasi{
-            color: white;
-            background-color: #5E9A78;
-            border-radius: 15px;
-        }
 
     </style>
 
