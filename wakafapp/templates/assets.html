@@ -5,8 +5,92 @@
 
     <body>
 
+    <div class="container-fluid py-3" style="background-color: 	#FFFFFF">
+        <p class="text-center mb-1"><b>CARA KAMI BEKERJA</b></p>
+        <h5 class="text-center mb-4"><b>Bagaimana WAKAF bekerja</b></h5>
+
+        <div class="card-deck py-2 px-3" id="cara-kerja">
+
+            <div class="card">
+                <img class="card-img-top" src="{% static '/img/assets1.png' %}">
+                <div class="card-body">
+
+
+                    <div><h4><b>MHDC Pesona Square</b>    </h4></div>
+                    <p class="card-text">MHDC merupakan one stop clinic yang menghadirkan layanan kesehatan umum, tumbuh kembang anak, estetika dan akupuntur, serta gigi spesialistik yang berkualitas di Jakarta. </p>
+                </div>
+
+                <div class="card-footer" data-toggle="modal" data-target="#myModal">
+                    <div class="text-center"><a href="#card-footer"><b>Pelajari</b></a></div>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+                <img class="card-img-top" src="{% static '/img/assets2.png' %}">
+                <div class="card-body">
+                    <li class="label"><p class="tags">Wiraswasta</p></li>
+
+                    <div><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <img class="card-img-top" src="{% static '/img/assets3.png' %}">
+
+                <div class="card-body">
+                    <li class="label"><p class="tags">Bisnis</p></li>
+
+                    <div><h4><b>Business Re-engineering</b>    </h4></div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    </div>
 
 
     </body>
+
+    <style>
+    div.text-center > a {
+            color: white;
+            font-weight: bolder;
+
+        }
+        div.text-center > a:link {
+            color: white;
+            background-color: transparent;
+            text-decoration: none;
+        }
+    </style>
 
 {% endblock %}

@@ -7,5 +7,5 @@ def home(request):
 def assets(request):
 	return render(request,"assets.html")
 
-def testtt(request):
-	return render(request,'home-old.html')
+# def testtt(request):
+# 	return render(request,'home-old.html')

@@ -1,0 +1,14 @@
+div.card-footer {
+    margin-top: 30px;
+    background-color: #A6CD9D;
+}
+
+div.text-center {
+    back-color: #FFFFFF;
+}
+
+div.text-center > b {
+            color: white;
+            font-weight: bolder;
+
+        }
