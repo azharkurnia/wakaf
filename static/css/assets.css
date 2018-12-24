@@ -13,3 +13,12 @@ div.text-center > b {
 
 }
 
+
+#banner {
+    background-image: url("banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+

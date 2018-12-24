@@ -6,8 +6,8 @@
     <body>
 
     <div class="container-fluid py-3" style="background-color: 	#FFFFFF">
-        <p class="text-center mb-1"><b>CARA KAMI BEKERJA</b></p>
-        <h5 class="text-center mb-4"><b>Bagaimana WAKAF bekerja</b></h5>
+        <p class="px-3 mb-1"><b>ASSETS</b></p>
+        <h4 class="px-3 mb-4"><b>Unit Bisnis Kami</b></h4>
 
         <div class="card-deck py-2 px-3" id="cara-kerja">
 
@@ -50,49 +50,61 @@
 
             </div>
         </div>
+    </div>
+    <div class="container-fluid p-lg-5 bg-white">
+        <div class="row px-3 px-lg-5" id="banner">
 
-
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <img src="{% static '/img/assets1.png' %}" style="width:100%;">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="main">
-                            <h5 class="indikator">MHDC Pesona Square - Indikator</h5>
-
-                            <ol>
-                                <li>Azhar Kurnia</li>
-                                <li>Fajrin Maulana Kingwijati</li>
-                                <li>Aufar Rizki</li>
-                                <li>Pengeluaran Alat</li>
-                                <li>Galang Fauzan Galang Fauzan</li>
-                                <li>Azhar Kurnia Azhar Kurnia</li>
-                                <li>Fajrin Maulana Kingwijati</li>
-                                <li>Aufar Rizki Aufar Rizki Aufar</li>
-                                <li>Pengeluaran Alat</li>
-                                <li>Galang Fauzan</li>
-                                <li>Pembayaran per Pasien</li>
-
-                            </ol>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                </div>
+            <div class="col-lg-6 col-md-4 col-sm-4 py-lg-5">
+                <ul>
+                    <h5 class="kerjasama" style="font-weight: bolder">Tertarik bekerjasama</h5></ul>
+                <ul><p class="kerjasama" style="color: white">kami akan menghubungi anda kembali setelah anda meninggalkan pesan</p></ul>
+            </div>
+            <div class="col-lg-6 col-md-8 col-sm-8 p-lg-5">
+                <button class="btn btn-light" id="button-pesan"><strong>Tinggalkan Pesan</strong></button>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <img src="{% static '/img/assets1.png' %}" style="width:100%;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="main">
+                        <h5 class="indikator">MHDC Pesona Square - Indikator</h5>
+
+                        <ol>
+                            <li>Azhar Kurnia</li>
+                            <li>Fajrin Maulana Kingwijati</li>
+                            <li>Aufar Rizki</li>
+                            <li>Pengeluaran Alat</li>
+                            <li>Galang Fauzan Galang Fauzan</li>
+                            <li>Azhar Kurnia Azhar Kurnia</li>
+                            <li>Fajrin Maulana Kingwijati</li>
+                            <li>Aufar Rizki Aufar Rizki Aufar</li>
+                            <li>Pengeluaran Alat</li>
+                            <li>Galang Fauzan</li>
+                            <li>Pembayaran per Pasien</li>
+
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 
     </body>
@@ -146,6 +158,39 @@
             color: white;
             font-weight: 1000;
         }
+
+        #button-pesan {
+            margin-top: 30px;
+            margin-right: 18px;
+            float: right;
+            background-position-x: left;
+            opacity: 0.7;
+            font-weight: bolder;
+        }
+        .kerjasama {
+            color: #FFFFFF;
+        }
+        @media only screen and (max-width: 1024px) {
+
+            #banner {
+                background-image: none;
+                background-repeat: no-repeat;
+                background-color: #5E9A78;
+            }
+
+            #button-pesan {
+                margin-top: 60px;
+                margin-left: 28%;
+                margin-bottom: 40px;
+                float: bottom;
+            }
+
+            .kerjasama {
+                margin-top: 20px;
+            }
+        }
+
+
     </style>
 
 {% endblock %}
