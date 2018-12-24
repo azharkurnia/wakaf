@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="card-footer" data-toggle="modal" data-target="#myModal">
-                    <div class="text-center"><a href="#card-footer"><b>Pelajari</b></a></div>
+                    <div class="text-center"><a href="#card-footer"><b>Lihat Indikator</b></a></div>
                 </div>
 
             </div>
@@ -53,35 +53,52 @@
 
 
         <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <img src="{% static '/img/assets1.png' %}" style="width:100%;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="main">
+                            <h5 class="indikator">MHDC Pesona Square - Indikator</h5>
+
+                            <ol>
+                                <li>Azhar Kurnia</li>
+                                <li>Fajrin Maulana Kingwijati</li>
+                                <li>Aufar Rizki</li>
+                                <li>Pengeluaran Alat</li>
+                                <li>Galang Fauzan Galang Fauzan</li>
+                                <li>Azhar Kurnia Azhar Kurnia</li>
+                                <li>Fajrin Maulana Kingwijati</li>
+                                <li>Aufar Rizki Aufar Rizki Aufar</li>
+                                <li>Pengeluaran Alat</li>
+                                <li>Galang Fauzan</li>
+                                <li>Pembayaran per Pasien</li>
+
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
     </div>
 
 
     </body>
 
     <style>
-    div.text-center > a {
+        div.text-center > a {
             color: white;
             font-weight: bolder;
 
@@ -90,6 +107,44 @@
             color: white;
             background-color: transparent;
             text-decoration: none;
+        }
+        .main {
+            max-width: 960px;
+            margin: auto;
+        }
+
+        ol{
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            -ms-column-count: 2;
+            -o-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 2em;
+            -moz-column-gap: 2em;
+            -ms-column-gap: 2em;
+            -o-column-gap: 2em;
+            column-gap: 2em;
+        }
+
+        ol > li{
+            font-weight: 500;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .indikator {
+            padding-left: 25px;
+            font-weight: 500;
+            color: #5E9A78;
+
+        }
+
+
+        .close {
+            position: fixed;
+            right: 6%;
+            color: white;
+            font-weight: 1000;
         }
     </style>
 
