@@ -7,5 +7,8 @@ def home(request):
 def assets(request):
 	return render(request,"assets.html")
 
+def volunteer(request):
+	return render(request,'volunteer.htnml')
+
 # def testtt(request):
 # 	return render(request,'home-old.html')
