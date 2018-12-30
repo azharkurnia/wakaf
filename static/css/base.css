@@ -17,3 +17,9 @@
     font-family: CircularStd-Medium;
     src: url('../fonts/CircularStd-Medium.otf');
 }
+
+#footer {
+    background-image: url("banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

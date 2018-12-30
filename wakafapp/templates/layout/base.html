@@ -62,41 +62,33 @@
 <!-- END CONTENT -->
 
 <!-- FOOTER -->
-<div class="container-fluid bg-light" id="footer">
-    <div class="row">
-        <div class="p-4 col-md-6">
-            <h6 class="mb-4">Wakaf</h6>
-            <p>Century Center (8th floor)Kha-225, Progoti<br>Avenue Merul Badda,<br>Dhaka-1212<br></p>
-            <p>+8801790603121</p>
-            <p>Info@wakaf.com</p>
+<div class="container-fluid" id="footer">
+    <div class="row pt-4 pl-4 pr-4 pb-0">
+        <div class="p-lg-4 col-md-6">
+            <h6 class="footer mb-2">YAYASAN WAKAF PRODUKTIF – Pengelola Aset Islami Indonesia</h6>
+            <p class="mb-1 footer" >Jalan Palapa 1 No.4, RT.1/RW.5, Pasar Minggu,<br>RT.1/RW.5, Ps. Minggu, Kota Jakarta Selatan,<br>Daerah Khusus Ibukota Jakarta 12520<br></p>
+            <p class="mb-1 footer" >Afdhal Aliasar – 08151824920</p>
+            <p class="mb-1 footer" >wakafproduktif.paii@gmail.com</p>
         </div>
+
         <div class="col-md-6">
-            <div class="row" style="display: flex">
-                <div class="p-4" style="width: 50%;">
-                    <h6 class="mb-4">Layanan Kami</h6>
-                    <p class="mb-1">Layanan #1</p>
-                    <p class="mb-1">Layanan #2</p>
-                    <p class="mb-1">Layanan #3</p>
-                    <p class="mb-1">Layanan #4</p>
-                    <p class="m-0">Layanan #5</p>
+            <div class="row px-lg-5" style="display: flex">
+                <div class="col-lg-6 col-md-4 col-sm-4 py-lg-5">
+                    <h5 class="footer" style="margin-top: 10%">Tertarik bekerja sama?</h5>
+                    <h6 class="footer">Hubungi kami untuk mengetahui lebih lanjut</h6>
                 </div>
-                <div class="p-4" style="width: 50%;">
-                    <h6 class="mb-4">Kantor Kami</h6>
-                    <p class="mb-1">Perusahaan</p>
-                    <p class="mb-1">Portofolio</p>
-                    <p class="mb-1">Kisah Klien</p>
-                    <p class="mb-1">Karir</p>
+                <div class="col-md-6 p-lg-4">
+                    <a href="/" class="btn btn-light" id="button-pesan"><strong><i class="fa fa-whatsapp mr-2"style="font-size: 20px"></i><p class="m-0" style="display: inline-block">Tinggalkan Pesan</p></strong></a>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="p-4 col-md-12">
-            <i class="fa fa-facebook mr-4" style="font-size: 20px"></i>
-            <i class="fa fa-google-plus mr-4" style="font-size: 20px"></i>
-            <i class="fa fa-instagram mr-4" style="font-size: 20px"></i>
-            <i class="fa fa-linkedin mr-4" style="font-size: 20px"></i>
-            <i class="fa fa-twitter mr-4" style="font-size: 20px"></i>
+    <div class="row px-4">
+        <div class="py-2 px-4 col-md-12">
+            <i class="fa fa-facebook mr-4" style="color: white;font-size: 20px"></i>
+            <i class="fa fa-youtube mr-4" style="color: white;font-size: 20px"></i>
+            <i class="fa fa-instagram mr-4" style="color: white;font-size: 20px"></i>
         </div>
     </div>
 </div>
@@ -114,7 +106,7 @@
         // Transition effect for navbar
         $(window).scroll(function() {
             // checks if window is scrolled more than 500px, adds/removes solid class
-            if($(this).scrollTop() > 500) {
+            if($(this).scrollTop() > 50) {
                 $('.navbar').addClass('solid');
             } else {
                 $('.navbar').removeClass('solid');
@@ -130,6 +122,9 @@
 
 
 <style>
+    .footer {
+        color: white;
+    }
     .navbar.other-nav {
         background-color:rgb(245,216,136); /*whichever you want*/
     }
@@ -144,6 +139,26 @@
         font-size: 15px;
         font-weight: bold;
     }
+
+    #button-pesan {
+        margin-top: 30%;
+    }
+
+    @media only screen and (max-width: 1024px) {
+
+        #footer {
+            background-image: none;
+            background-repeat: no-repeat;
+            background-color: #5E9A78;
+        }
+
+        #button-pesan {
+                margin-top: 60px;
+                margin-bottom: 40px;
+                float: bottom;
+            }
+    }
+
 </style>
 </body>
 

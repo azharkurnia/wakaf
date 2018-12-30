@@ -11,6 +11,19 @@
         <div class="container contact-form py-3" style="background-color: lightgrey; padding-left: 20%;padding-right: 20%">
             <form method="post">
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="kegiatan">Pilih nama kegiatan: *</label>
+                            <select class="form-control" id="kegiatan">
+                                <option>Kegiatan 1</option>
+                                <option>Kegiatan 2</option>
+                                <option>Kegiatan 3</option>
+                                <option>Kegiatan 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <input type="text" name="namadepan" class="form-control" placeholder="Nama depan *" value="" />
@@ -21,17 +34,17 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="namabelakang" class="form-control" placeholder="Nama belakang*" value="" />
+                            <input type="text" name="namabelakang" class="form-control" placeholder="Nama belakang *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="nohandphone" class="form-control" placeholder="Nomor handphone*" value="" />
+                            <input type="text" name="nohandphone" class="form-control" placeholder="Nomor handphone *" value="" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        Kelamin*
-                        <div class="form-check-inline" style="margin-left: 10% ">
+                        <p style="display: inline-block;">Kelamin*</p>
+                        <div class="form-check-inline" style="margin-left: 9% ">
                             <label class="form-check-label" for="radio1">
                                 <input type="radio" class="form-check-input" id="lakilaki" name="optradio" value="lakilaki" checked>Laki-laki
                             </label>
@@ -43,7 +56,7 @@
                         </div>
                     </div>
                     <div class="col-2 pr-0">
-                        Tanggal lahir*
+                        <p>Tanggal lahir*</p>
                     </div>
                     <div class="col-4">
                         <div class="form-group">
@@ -54,12 +67,12 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <input type="text" name="alamat" class="form-control" placeholder="Alamat*" value="" />
+                            <input type="text" name="alamat" class="form-control" placeholder="Alamat *" value="" />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input type="text" name="domisili" class="form-control" placeholder="Domisili*" value="" />
+                            <input type="text" name="domisili" class="form-control" placeholder="Kota domisili*" value="" />
                         </div>
                     </div>
                 </div>
@@ -76,7 +89,7 @@
             <h4 class="px-3 mb-4" style="margin-top: 10%"><b>Kegiatan Volunteer Kami</b></h4>
 
             <div class="media border p-3">
-                <img src="{% static 'img/article1.png' %}" alt="John Doe" class="mr-3 style="width:60px;">
+                <img class="img-fluid mr-3" src="{% static 'img/article1.png' %}" alt="John Doe">
                 <div class="media-body">
                     <h4>3 Tips Sederhana Memulai Bisnis Waralaba</h4>
                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
@@ -88,7 +101,7 @@
             </div>
 
             <div class="media border p-3">
-                <img src="{% static 'img/article1.png' %}" alt="John Doe" class="mr-3 style="width:60px;">
+                <img class="img-fluid mr-3" src="{% static 'img/article2.png' %}" alt="John Doe">
                 <div class="media-body">
                     <h4>3 Tips Sederhana Memulai Bisnis Waralaba</h4>
                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
@@ -99,7 +112,7 @@
                 </div>
             </div>
             <div class="media border p-3">
-                <img src="{% static 'img/article1.png' %}" alt="John Doe" class="mr-3 style="width:60px;">
+                <img class="img-fluid mr-3" src="{% static 'img/article3.png' %}" alt="John Doe">
                 <div class="media-body">
                     <h4>3 Tips Sederhana Memulai Bisnis Waralaba</h4>
                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
