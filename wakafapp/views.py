@@ -10,5 +10,8 @@ def assets(request):
 def volunteer(request):
 	return render(request,"volunteer.html")
 
+def article (request):
+	return render(request,"article.html")
+
 # def testtt(request):
 # 	return render(request,'home-old.html')
