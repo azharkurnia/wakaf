@@ -25,7 +25,7 @@
 
     {#    <link rel="stylesheet" href="{% static 'css/theme.css' %}" type="text/css">#}
     <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css" >
-    <link rel="stylesheet" href="{% static 'css/assets.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/program.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
 
     <title> {% block title %} WAKAF {% endblock %}</title>
@@ -46,7 +46,7 @@
     <ul class="navbar-nav ml-auto">
 
     <li class="nav-item mr-4"> <a class="nav-link" {% if url_name == 'home' %}style="font-size: 20px"{% endif %} href="{% url 'wakafapp:home' %}">HOME</a> </li>
-    <li class="nav-item mr-4"> <a class="nav-link" {% if url_name == 'assets' %}style="font-size: 20px"{% endif %} href="{% url 'wakafapp:assets' %}">ASSETS</a> </li>
+    <li class="nav-item mr-4"> <a class="nav-link" {% if url_name == 'program' %}style="font-size: 20px"{% endif %} href="{% url 'wakafapp:program' %}">PROGRAM</a> </li>
     <li class="nav-item mr-4"> <a class="nav-link" {% if url_name == 'artikel' %}style="font-size: 20px"{% endif %} href="{% url 'wakafapp:article' %}">ARTIKEL</a> </li>
     <li class="nav-item"> <a class="nav-link" {% if url_name == 'volunteer' %}style="font-size: 20px"{% endif %} href="{% url 'wakafapp:volunteer' %}">VOLUNTEER</a> </li>
 {% endwith %}

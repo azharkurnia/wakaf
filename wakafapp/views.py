@@ -4,8 +4,8 @@ from django.shortcuts import render
 def home(request):
 	return render(request,'home.html')
 
-def assets(request):
-	return render(request,"assets.html")
+def program(request):
+	return render(request,"program.html")
 
 def volunteer(request):
 	return render(request,"volunteer.html")
