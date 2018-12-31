@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 import wakafapp.urls as wakafapp
+import wakafadmin.urls as wakafadmin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(wakafapp, namespace='wakafapp'))
+    url(r'^', include(wakafapp, namespace='wakafapp')),
+    url(r'^wakaf_admin', include(wakafadmin, namespace='wakafadmin')),
 ]
