@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="{% static 'css/program.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <title> {% block title %} WAKAF {% endblock %}</title>
 </head>
 
@@ -94,11 +98,11 @@
 </div>
 <!-- END FOOTER -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+
 
 <script>
 
@@ -112,9 +116,6 @@
                 $('.navbar').removeClass('solid');
             }
         });
-
-        var fileName = location.href.split("/").slice(-1);
-        console.log(fileName);
     });
 </script>
 
@@ -153,10 +154,10 @@
         }
 
         #button-pesan {
-                margin-top: 60px;
-                margin-bottom: 40px;
-                float: bottom;
-            }
+            margin-top: 60px;
+            margin-bottom: 40px;
+            float: bottom;
+        }
     }
 
 </style>
