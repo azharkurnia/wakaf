@@ -37,7 +37,7 @@
                         <th>Waktu Daftar</th>
                     </tr>
                     </tfoot>
-                    <tbody id="tableRegistrant">
+                    <tbody id="tableDonatur">
                     {% for donatur in donaturList %}
                         <tr>
                             <td>Rp {{ donatur.nominal }}</td>
@@ -61,7 +61,7 @@
 
     <script>
         function refreshTable() {
-            $("#tableRegistrant").load(" #tableRegistrant > *");
+            $("#tableDonatur").load(" #tableDonatur > *");
             return false;
         }
 
