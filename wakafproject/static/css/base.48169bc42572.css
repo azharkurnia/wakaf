@@ -1,0 +1,25 @@
+@font-face {
+    font-family: CircularStd-Black;
+    src: url("../fonts/CircularStd-Black.7f42d8488652.otf");
+}
+
+@font-face {
+    font-family: CircularStd-Bold;
+    src: url("../fonts/CircularStd-Bold.6baed2bf5809.otf");
+}
+
+@font-face {
+    font-family: CircularStd-Book;
+    src: url("../fonts/CircularStd-Book.6365c40aa59d.otf");
+}
+
+@font-face {
+    font-family: CircularStd-Medium;
+    src: url("../fonts/CircularStd-Medium.4fcdd97fadc3.otf");
+}
+
+#footer {
+    background-image: url("banner.ec596878865d.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

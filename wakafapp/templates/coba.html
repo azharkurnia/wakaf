@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>coba</title>
+
+    {% for p in parent %}
+        {% for a in child %}
+            {% if  a.parent == p %}
+                {{ a.value }}
+            {% else %}
+
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</head>
+<body>
+
+</body>
+</html>
