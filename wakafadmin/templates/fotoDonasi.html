@@ -1,0 +1,16 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}  
+  <form id="formSponsor" name="form" method="POST" action="{% url 'wakafadmin:uploadFotoDonasi' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="fotoDonasi">
+    <button type="submit">Upload</button>
+  </form>
+
+  {% for foto in fotoDonasi %}
+	  <p>Foto yang ditampilkan:</p>
+	  <img src="{{ foto.urlFoto }}" class="img-fluid" width="360">
+  {% endfor %}
+
+{% endblock %}

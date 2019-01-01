@@ -23,3 +23,44 @@ def tables(request):
     donaturList = Donatur.objects.all()
     response['donaturList'] = donaturList
     return render(request, 'dashboard.html', response)
+
+@login_required
+@csrf_exempt
+def uploadFotoDonasi(request):
+    fs = FileSystemStorage()
+    if (FotoDonasi.objects.count() > 0):
+        foto = FotoDonasi.objects.all()
+        fs.delete(foto[0].namaFile)
+        FotoDonasi.objects.all().delete()
+        print("hapus gambar")
+
+        if request.method == 'POST' and request.FILES['fotoDonasi']:
+            myfile = request.FILES['fotoDonasi']
+            # print(myfile,type(myfile))
+            # print(myfile.name, type(myfile.name))
+            filename = fs.save(myfile.name, myfile)
+            uploaded_file_url = fs.url(filename)
+            urlFotoDonasi = FotoDonasi(
+                namaFile=myfile.name,
+                urlFoto=uploaded_file_url)
+            urlFotoDonasi.save()
+            print("simpan foto donasi")
+    else:
+        if request.method == 'POST' and request.FILES['fotoDonasi']:
+            myfile = request.FILES['fotoDonasi']
+            # print(myfile, type(myfile))
+            # print(myfile.name, type(myfile.name))
+            filename = fs.save(myfile.name, myfile)
+            uploaded_file_url = fs.url(filename)
+            urlFotoDonasi = FotoDonasi(
+                namaFile=myfile.name,
+                urlFoto=uploaded_file_url)
+            urlFotoDonasi.save()
+            print("simpan foto donasi")
+    return redirect('wakafadmin:pageFotoDonasi')
+
+@login_required
+def pageFotoDonasi(request):
+    fotoDonasi = FotoDonasi.objects.all()
+    response['fotoDonasi'] = fotoDonasi
+    return render(request, 'fotoDonasi.html', response)

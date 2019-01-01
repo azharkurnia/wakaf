@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/wakaf_admin'}, name='logout'),
     url(r'^tables/', tables, name='tables'),
+    url(r'^uploadFotoDonasi/', uploadFotoDonasi, name='uploadFotoDonasi'),
+    url(r'^pageFotoDonasi/', pageFotoDonasi, name='pageFotoDonasi'),
 
 ]

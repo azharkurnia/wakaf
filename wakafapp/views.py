@@ -52,18 +52,19 @@ def add_donatur(request):
 
 def coba(request):
     a = Parent.objects.all().delete()
-    # b = Child.objects.all().delete()
+    b = Child.objects.all().delete()
     print(Parent.objects.all().count())
     print(Child.objects.all().count())
     response = {}
-    # parent1 = Parent(nama="azhar")
-    # parent1.save()
-    # child = Child(parent= Parent.objects.get(nama="azhar"), value='a')
-    # child.save()
-    # child = Child(parent=Parent.objects.get(nama="azhar"), value='aaa')
-    # child.save()
-    # response['parent'] = Parent.objects.all()
-    # response['child'] = Child.objects.all()
+    parent1 = Parent(nama="azhar")
+    parent1.save()
+    child = Child(parent= Parent.objects.get(nama="azhar"), value='a')
+    child.save()
+    child = Child(parent=Parent.objects.get(nama="azhar"), value='aaa')
+    child.save()
+    response['parent'] = Parent.objects.all()
+    response['child'] = Child.objects.all()
     return render(request, "coba.html", response)
+
 # def testtt(request):
 # 	return render(request,'home-old.html')

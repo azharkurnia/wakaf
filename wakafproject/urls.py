@@ -17,6 +17,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 import wakafapp.urls as wakafapp
 import wakafadmin.urls as wakafadmin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,3 +26,6 @@ urlpatterns = [
     url(r'^wakaf_admin/', include(wakafadmin, namespace='wakafadmin')),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
