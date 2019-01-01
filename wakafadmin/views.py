@@ -64,3 +64,9 @@ def pageFotoDonasi(request):
     fotoDonasi = FotoDonasi.objects.all()
     response['fotoDonasi'] = fotoDonasi
     return render(request, 'fotoDonasi.html', response)
+
+@login_required
+def pageCarouselHome(request):
+    fotoCarousel = CarouselPortofolio.objects.all()
+    response['fotoCarousel'] = fotoCarousel
+    return render(request, 'fotoCarousel.html', response)
