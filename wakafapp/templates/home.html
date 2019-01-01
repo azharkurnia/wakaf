@@ -158,7 +158,8 @@
                 <!-- Modal body -->
                 <div class="modal-body px-4">
                     <div class="main">
-                        <form id="form-donasi">
+                        <form id="form-donasi" name="form-donasi" method="POST" action="{% url 'wakafapp:add_donatur' %}">
+                            {% csrf_token %}
                             <div class="text-center">
                                 <p class="subheading1 px-4">Donasi Wakaf</p>
                                 <p> Jumlah Donasi</p>
@@ -166,7 +167,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input required min="10000" step="1000" type="number" class="form-control" id="nominalFix">
+                                    <input required min="10000" step="1000" type="number" class="form-control" name="nominal" id="nominalFix">
                                 </div>
                             </div>
                             <div class="container" style="padding: 10%">
@@ -193,12 +194,12 @@
                                         <p style="display: inline-block;">Kelamin*</p>
                                         <div class="form-check-inline" style="margin-left: 9% ">
                                             <label class="form-check-label" for="radio1">
-                                                <input required type="radio" class="form-check-input" id="lakilaki" name="optradio" value="lakilaki" checked><small>Laki-laki</small>
+                                                <input required type="radio" class="form-check-input" id="lakilaki" name="kelamin" value="lakilaki" checked><small>Laki-laki</small>
                                             </label>
                                         </div>
                                         <div class="form-check-inline">
                                             <label class="form-check-label" for="radio2">
-                                                <input required type="radio" class="form-check-input" id="perempuan" name="optradio" value="perempuan"><small>Perempuan</small>
+                                                <input required type="radio" class="form-check-input" id="perempuan" name="kelamin" value="perempuan"><small>Perempuan</small>
                                             </label>
                                         </div>
                                     </div>
@@ -230,16 +231,9 @@
                                     <button class="btn" id="button-donasi"><strong>Lakukan Donasi</strong></button>
                                 </div>
                             </div>
-
                         </form>
                     </div>
-
-
-
                 </div>
-
-
-
             </div>
         </div>
     </div>
