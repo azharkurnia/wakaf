@@ -33,7 +33,11 @@
                 <div class="col-md-6">
 
                     <div class="card bg-light">
-                        <img class="card-img-top" src="{% static '/img/donasi.png' %}" alt="Card image">
+                        <img class="card-img-top" alt="Card image" src="
+                                {% for foto in fotoDonasi %}
+                                    {{ foto.urlFoto }}
+                                {% endfor %}
+                        ">
                         <div class="card-body">
                             <h5 class="subheading1 card-title"><b>Bantu layanan kami berkembang</b></h5>
                             <p class="subheading2 card-text my-1">Wakaf berkomitmen untuk meningkatkan kualitas layanan yang kami miliki. Oleh karenanya, kami siap menerima uluran tangan anda untuk kegiatan usaha kami sehingga kami dapat memberikan yang terbaik</p>

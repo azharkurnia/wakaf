@@ -5,8 +5,11 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
 
 # Create your views here.
+response = {}
 def home(request):
-    return render(request, 'home.html')
+    fotoDonasi = FotoDonasi.objects.all()
+    response['fotoDonasi'] = fotoDonasi
+    return render(request, 'home.html', response)
 
 
 def program(request):
