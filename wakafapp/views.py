@@ -9,6 +9,8 @@ response = {}
 def home(request):
     fotoDonasi = FotoDonasi.objects.all()
     response['fotoDonasi'] = fotoDonasi
+    fotoCarousel = CarouselPortofolio.objects.all()
+    response['fotoCarousel'] = fotoCarousel
     return render(request, 'home.html', response)
 
 

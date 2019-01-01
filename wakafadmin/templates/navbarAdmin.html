@@ -56,6 +56,9 @@
                     <li>
                         <a href="/wakaf_admin/pageFotoDonasi">Gambar Donasi</a>
                     </li>
+                    <li>
+                        <a href="/wakaf_admin/pageCarouselHome">Gambar Carousel Home</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
@@ -153,14 +156,4 @@
     }
 
 </style>
-<script>
-    var paidSlide = function(id){
-        console.log(id);
-        $.ajax({
-            method: "GET",
-            url: "/tossaka_admin/paidSlide/"+id+"/",
-        });
-    }
-</script>
-
 </html>

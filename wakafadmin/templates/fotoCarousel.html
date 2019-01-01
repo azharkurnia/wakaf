@@ -1,0 +1,60 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+
+    <form id="formCarouselHome" name="form" method="POST" action="{% url 'wakafadmin:addCarouselHome' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input required type="file" name="fotoCarouselHome">
+        <button type="submit">Upload</button>
+    </form>
+
+
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Foto Carousel Home
+        </div>
+
+
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="registrantTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for foto in fotoCarousel %}
+                        <tr>
+                            <td><img class="img-fluid" style="max-width: 240px" src="{{ foto.urlFoto }}"></td>
+                            <td><button class="btn btn-danger" onclick="deleteFoto({{ foto.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var deleteFoto = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteCarouselHome/"+id+"/",
+                success: function() {location.reload();}
+            });
+        }
+
+        function refreshTable() {
+            $("#tableDonatur").load(" #tableDonatur > *");
+            return false;
+        }
+    </script>
+{% endblock %}
