@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class CarouselPortofolio(models.Model):
     namaFile = models.TextField(blank=False)

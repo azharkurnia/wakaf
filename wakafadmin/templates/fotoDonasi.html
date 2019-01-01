@@ -4,7 +4,7 @@
 {% block content %}  
   <form id="formSponsor" name="form" method="POST" action="{% url 'wakafadmin:uploadFotoDonasi' %}" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="file" name="fotoDonasi">
+    <input required type="file" name="fotoDonasi">
     <button type="submit">Upload</button>
   </form>
 
