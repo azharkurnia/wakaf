@@ -1,0 +1,69 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Data Donatur</div>
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="registrantTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Jumlah</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Nomor HP</th>
+                        <th>email</th>
+                        <th>Alamat</th>
+                        <th>Domisili</th>
+                        <th>Waktu Daftar</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Jumlah</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Nomor HP</th>
+                        <th>email</th>
+                        <th>Alamat</th>
+                        <th>Domisili</th>
+                        <th>Waktu Daftar</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="tableRegistrant">
+                    {% for donatur in donaturList %}
+                        <tr>
+                            <td>Rp {{ donatur.nominal }}</td>
+                            <td>{{ donatur.nama }}</td>
+                            <td>{{ donatur.kelamin }}</td>
+                            <td>{{ donatur.birth }}</td>
+                            <td>{{ donatur.noHp }}</td>
+                            <td>{{ donatur.email }}</td>
+                            <td>{{ donatur.alamat }}</td>
+                            <td>{{ donatur.domisili }}</td>
+                            <td><span class='hide'>{{ donatur.created_on|date:"Ymd" }}</span>{{ donatur.created_on|date:"d/m/Y" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function refreshTable() {
+            $("#tableRegistrant").load(" #tableRegistrant > *");
+            return false;
+        }
+
+    </script>
+{% endblock %}

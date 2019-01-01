@@ -146,7 +146,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-LOGIN_REDIRECT_URL = 'wakaf_admin/volunteer-list'
+LOGIN_REDIRECT_URL = 'wakafadmin:tables'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

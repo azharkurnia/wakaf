@@ -9,8 +9,7 @@ class FotoDonasi (models.Model):
 
 class Donatur(models.Model):
     nominal = models.IntegerField(blank=False)
-    namaDepan = models.CharField(max_length=140, blank=False)
-    namaBelakang = models.CharField(max_length=140, blank=False)
+    nama = models.CharField(max_length=140, blank=False)
     email = models.EmailField(max_length=140, blank=False)
     noHp = models.CharField(max_length=140, blank=False)
     kelamin = models.CharField(max_length=140, blank=False)
@@ -72,8 +71,7 @@ class KegiatanVolunteer(models.Model):
 
 class Volunteer (models.Model):
     kegiatan = models.CharField(max_length=140, blank=False)
-    namaDepan = models.CharField(max_length=140, blank=False)
-    namaBelakang = models.CharField(max_length=140, blank=False)
+    nama = models.CharField(max_length=140, blank=False)
     email = models.EmailField(max_length=140, blank=False)
     noHp = models.CharField(max_length=140, blank=False)
     kelamin = models.CharField(max_length=140, blank=False)

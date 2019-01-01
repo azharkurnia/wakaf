@@ -21,6 +21,6 @@ import wakafadmin.urls as wakafadmin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(wakafapp, namespace='wakafapp')),
-    url(r'^wakaf_admin', include(wakafadmin, namespace='wakafadmin')),
+    url(r'^wakaf_admin/', include(wakafadmin, namespace='wakafadmin')),
 
 ]

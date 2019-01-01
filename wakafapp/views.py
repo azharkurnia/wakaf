@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
@@ -36,8 +36,7 @@ def add_donatur(request):
 
         donatur = Donatur(
             nominal=nominal,
-            namaDepan=namadepan,
-            namaBelakang=namabelakang,
+            nama=namadepan+' '+namabelakang,
             email=email,
             noHp=noHp,
             kelamin=kelamin,
@@ -48,7 +47,7 @@ def add_donatur(request):
         donatur.save()
         print(Donatur.objects.all().count())
         # TODO: Redirect ke page Thank you
-    return render(request, 'home.html')
+    return HttpResponseRedirect(reverse('wakafapp:home'))
 
 
 def coba(request):
