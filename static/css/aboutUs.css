@@ -16,11 +16,8 @@
     .row-bawah-pengurus {
         padding-left: 22vw;
     }
-    .mapouter {
-    	text-align:right;height:500px;width:750px;
-    }
-    .gmap_canvas {
-    	overflow:hidden;background:none!important;height:500px;width:750px;
+    #map-small {
+    	display: none;
     }
     .card-info {
     	width: 30vw !important;
@@ -57,11 +54,8 @@
 	.map-big {
 		display: none;
 	}
-	.mapouter {
-    	text-align:right;height:400px;width:300px;
-    }
-    .gmap_canvas {
-    	overflow:hidden;background:none!important;height:400px;width:300px;
+	#map-big {
+    	display: none;
     }
     .card-info {
     	width: 80vw !important;
