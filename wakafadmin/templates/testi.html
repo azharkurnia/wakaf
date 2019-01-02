@@ -4,35 +4,55 @@
 {% block content %}
     <div class="card mb-3 mt-5">
         <div class="card-header">
-            <i class="fa fa-table"></i> Tambah Layanan
+            <i class="fa fa-table"></i> Form Tambah dan Edit Testimonial
         </div>
 
         <div class="card-body">
 
-            <form id="formTesti" name="form" method="POST" action="{% url 'wakafadmin:addTest' %}" >
+            <form id="formTesti" name="form" method="POST" action="{% url 'wakafadmin:addTesti' %}" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="row">
+                <div class="row mx-2">
                     <div class="form-group">
-                        <label for="kegiatan">Pilih nama kegiatan: *</label>
-                        <select required class="form-control" id="kegiatan">
-                            <option>Testimonial 1 (Terletak di kiri)</option>
-                            <option>Testimonial 1 (Terletak di tengah)</option>
-                            <option>Testimonial 1 (Terletak di kanan)</option>
+                        <label for="testimonial">Pilih letak testimonial: *</label>
+                        <select required class="form-control" name="letak" id="kegiatan">
+                            <option value="">Klik untuk memilih</option>
+                            <option value="1">Testimonial 1 (Terletak di kiri)</option>
+                            <option value="2">Testimonial 2 (Terletak di tengah)</option>
+                            <option value="3">Testimonial 3 (Terletak di kanan)</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row m-2">
-                    Nama Lengkap
+                    <div class="col-2">
+                        Nama Lengkap
+                    </div>
                     <div class="col">
-                        <input required type="text" class="form-control" name="nama" placeholder="Nama layanan">
+                        <input required type="text" class="form-control" name="nama" placeholder="Contoh: Jane Doe S.Kom">
                     </div>
                 </div>
                 <div class="row m-2">
-
-                    Detail Layanan
+                    <div class="col-2">
+                        Pekerjaan / Role
+                    </div>
                     <div class="col">
-                        <input required type="text" class="form-control" name="konten" placeholder="Detail layanan">
+                        <input required type="text" class="form-control" name="jabatan" placeholder="Contoh: CEO Bukalapak">
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-2">
+                        Konten
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="konten" placeholder="Masukan teks testimoni">
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-2">
+                        Foto
+                    </div>
+                    <div class="col">
+                        <input required type="file" name="fotoTesti">
                     </div>
                 </div>
                 <button class="btn btn-info" type="submit">Submit</button>
@@ -54,25 +74,48 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-cantik" id="carouselTable" width="100%" cellspacing="0">
                     <thead>
-                    <tr>
-                        <th>Judul</th>
+                    <tr><th>Posisi Testimoni</th>
+                        <th>Foto</th>
+                        <th>Nama dan Pekerjaan</th>
                         <th>Detail Konten</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>Judul</th>
+                        <th>Posisi Testimoni</th>
+                        <th>Foto</th>
+                        <th>Nama dan Pekerjaan</th>
                         <th>Detail Konten</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
                     <tbody class="table-cantik">
-                    {% for layanan in listLayanan %}
+                    {% for testi in testi1 %}
                         <tr>
-                            <td><p>{{ layanan.judul }}</p></td>
-                            <td><p>{{ layanan.konten }}</p></td>
-                            <td><button class="btn btn-danger" onclick="deleteLayanan({{ layanan.pk }})">HAPUS!</button></td>
+                            <td>1 (KIRI)</td>
+                            <td><img src="{{ testi.urlFoto }}"></td>
+                            <td><p>{{ testi.nama }}</p> <p>{{ testi.jabatan }}</p></td>
+                            <td><p>{{ testi.konten }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteTesti1({{ testi.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    {% for testi in testi2 %}
+                        <tr>
+                            <td>2 (TENGAH)</td>
+                            <td><img src="{{ testi.urlFoto }}"></td>
+                            <td><p>{{ testi.nama }}</p> <p>{{ testi.jabatan }}</p></td>
+                            <td><p>{{ testi.konten }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteTesti2({{ testi.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    {% for testi in testi3 %}
+                        <tr>
+                            <td>3 (KANAN)</td>
+                            <td><img src="{{ testi.urlFoto }}"></td>
+                            <td><p>{{ testi.nama }}</p> <p>{{ testi.jabatan }}</p></td>
+                            <td><p>{{ testi.konten }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteTesti3({{ testi.pk }})">HAPUS!</button></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -82,11 +125,29 @@
     </div>
 
     <script>
-        var deleteLayanan = function(id){
+        var deleteTesti1 = function(id){
             console.log(id);
             $.ajax({
                 method: "GET",
-                url: "/wakaf_admin/deleteLayanan/"+id+"/",
+                url: "/wakaf_admin/deleteTesti1/"+id+"/",
+                success: function() {location.reload();}
+            });
+        }
+
+        var deleteTesti2 = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteTesti2/"+id+"/",
+                success: function() {location.reload();}
+            });
+        }
+
+        var deleteTesti3 = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteTesti3/"+id+"/",
                 success: function() {location.reload();}
             });
         }
@@ -96,4 +157,11 @@
             return false;
         }
     </script>
+
+    <style>
+     img {
+         height: 60px;
+         width: 60px;
+     }
+    </style>
 {% endblock %}

@@ -137,17 +137,128 @@ def pageEditTesti(request):
 @login_required
 @csrf_exempt
 def addTesti(request):
-    return 0
+    fs = FileSystemStorage()
+    if request.method == 'POST' and request.FILES['fotoTesti']:
+
+        if request.POST['letak'] == '1':
+            if Testimoni1.objects.count() > 0:
+                testi = Testimoni1.objects.all()
+                fs.delete(testi[0].namaFile)
+                testi.delete()
+
+                myfile = request.FILES['fotoTesti']
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print("simpan foto donasi")
+                testi = Testimoni1(
+                    namaFile=myfile.name,
+                    urlFoto=uploaded_file_url,
+                    konten=request.POST['konten'],
+                    nama=request.POST['nama'],
+                    jabatan=request.POST['jabatan']
+                )
+                testi.save()
+            else:
+                myfile = request.FILES['fotoTesti']
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print("simpan foto donasi")
+                testi = Testimoni1(
+                    namaFile=myfile.name,
+                    urlFoto=uploaded_file_url,
+                    konten=request.POST['konten'],
+                    nama=request.POST['nama'],
+                    jabatan=request.POST['jabatan']
+                )
+                testi.save()
+
+
+        elif request.POST['letak'] == '2':
+            if Testimoni2.objects.count() > 0:
+                testi = Testimoni2.objects.all()
+                fs.delete(testi[0].namaFile)
+                testi.delete()
+
+                myfile = request.FILES['fotoTesti']
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print("simpan foto donasi")
+                testi = Testimoni1(
+                    namaFile=myfile.name,
+                    urlFoto=uploaded_file_url,
+                    konten=request.POST['konten'],
+                    nama=request.POST['nama'],
+                    jabatan=request.POST['jabatan']
+                )
+                testi.save()
+            else:
+                myfile = request.FILES['fotoTesti']
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print("simpan foto donasi")
+                testi = Testimoni2(
+                    namaFile=myfile.name,
+                    urlFoto=uploaded_file_url,
+                    konten=request.POST['konten'],
+                    nama=request.POST['nama'],
+                    jabatan=request.POST['jabatan']
+                )
+                testi.save()
+        elif request.POST['letak'] == '3':
+            if Testimoni3.objects.count() > 0:
+                testi = Testimoni1.objects.all()
+                fs.delete(testi[0].namaFile)
+                testi.delete()
+
+                myfile = request.FILES['fotoTesti']
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print("simpan foto donasi")
+                testi = Testimoni3(
+                    namaFile=myfile.name,
+                    urlFoto=uploaded_file_url,
+                    konten=request.POST['konten'],
+                    nama=request.POST['nama'],
+                    jabatan=request.POST['jabatan']
+                )
+                testi.save()
+            else:
+                myfile = request.FILES['fotoTesti']
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print("simpan foto donasi")
+                testi = Testimoni3(
+                    namaFile=myfile.name,
+                    urlFoto=uploaded_file_url,
+                    konten=request.POST['konten'],
+                    nama=request.POST['nama'],
+                    jabatan=request.POST['jabatan']
+                )
+                testi.save()
+
+    return redirect('wakafadmin:pageEditTesti')
 
 @login_required
-def deleteTesti1(request):
-    return 0
+def deleteTesti1(request, testi_id):
+    fs = FileSystemStorage()
+    testi = Testimoni1.objects.get(pk=testi_id)
+    fs.delete(testi.namaFile)
+    testi.delete()
+    return redirect('wakafadmin:pageEditTesti')
 
 @login_required
-def deleteTesti2(request):
-    return 0
+def deleteTesti2(request, testi_id):
+    fs = FileSystemStorage()
+    testi = Testimoni2.objects.get(pk=testi_id)
+    fs.delete(testi.namaFile)
+    testi.delete()
+    return redirect('wakafadmin:pageEditTesti')
 
 @login_required
-def deleteTesti3(request):
-    return 0
+def deleteTesti3(request, testi_id):
+    fs = FileSystemStorage()
+    testi = Testimoni3.objects.get(pk=testi_id)
+    fs.delete(testi.namaFile)
+    testi.delete()
+    return redirect('wakafadmin:pageEditTesti')
 

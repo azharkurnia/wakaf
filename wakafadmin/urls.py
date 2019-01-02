@@ -16,7 +16,10 @@ urlpatterns = [
     url(r'^pageLayanan/', pageLayanan, name='pageLayanan'),
     url(r'^addLayanan/', addLayanan, name='addLayanan'),
     url(r'^deleteLayanan/(?P<layanan_id>[0-9]+)/$', deleteLayanan, name='deleteLayanan'),
-    url(r'^pageEditTesti/', pageEditTesti, name='pageEditTest'),
+    url(r'^pageEditTesti/', pageEditTesti, name='pageEditTesti'),
     url(r'^addTesti', addTesti, name='addTesti'),
+    url(r'^deleteTesti1/(?P<testi_id>[0-9]+)/$', deleteTesti1, name='deleteTesti1'),
+    url(r'^deleteTesti2/(?P<testi_id>[0-9]+)/$', deleteTesti2, name='deleteTesti2'),
+    url(r'^deleteTesti3/(?P<testi_id>[0-9]+)/$', deleteTesti3, name='deleteTesti3'),
 
 ]

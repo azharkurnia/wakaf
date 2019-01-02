@@ -13,6 +13,12 @@ def home(request):
     response['fotoDonasi'] = fotoDonasi
     fotoCarousel = CarouselPortofolio.objects.all()
     response['fotoCarousel'] = fotoCarousel
+    testi1 = Testimoni1.objects.all()
+    testi2 = Testimoni2.objects.all()
+    testi3 = Testimoni3.objects.all()
+    response['testi1'] = testi1
+    response['testi2'] = testi2
+    response['testi3'] = testi3
     return render(request, 'home.html', response)
 
 
