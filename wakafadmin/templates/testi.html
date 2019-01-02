@@ -11,10 +11,21 @@
 
             <form id="formTesti" name="form" method="POST" action="{% url 'wakafadmin:addTest' %}" >
                 {% csrf_token %}
+                <div class="row">
+                    <div class="form-group">
+                        <label for="kegiatan">Pilih nama kegiatan: *</label>
+                        <select required class="form-control" id="kegiatan">
+                            <option>Testimonial 1 (Terletak di kiri)</option>
+                            <option>Testimonial 1 (Terletak di tengah)</option>
+                            <option>Testimonial 1 (Terletak di kanan)</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="row m-2">
-                    Nama Layanan
+                    Nama Lengkap
                     <div class="col">
-                        <input required type="text" class="form-control" name="judul" placeholder="Nama layanan">
+                        <input required type="text" class="form-control" name="nama" placeholder="Nama layanan">
                     </div>
                 </div>
                 <div class="row m-2">
