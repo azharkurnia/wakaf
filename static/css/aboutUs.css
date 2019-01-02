@@ -22,6 +22,24 @@
     .gmap_canvas {
     	overflow:hidden;background:none!important;height:500px;width:750px;
     }
+    .card-info {
+    	width: 30vw !important;
+    	height: 430px !important;
+    	margin-right: 5vw !important;
+    }
+    .card-body-info {
+    	padding: 0 !important;
+    }
+    .subheading1-info {
+    	margin-top: 3vh !important;
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    }
+    .subheading2-info {
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    	font-size: 15px !important;
+    }
 }
 
 @media screen and (max-width: 768px){
@@ -44,5 +62,24 @@
     }
     .gmap_canvas {
     	overflow:hidden;background:none!important;height:400px;width:300px;
+    }
+    .card-info {
+    	width: 80vw !important;
+    	height: 430px !important;
+    	margin-right: 5vw !important;
+    	margin-left: 5vw !important;
+    }
+    .card-body-info {
+    	padding: 0 !important;
+    }
+    .subheading1-info {
+    	margin-top: 3vh !important;
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    }
+    .subheading2-info {
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    	font-size: 15px !important;
     }
 }

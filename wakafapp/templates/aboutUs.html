@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="container-fluid py-3" style="background-color: white">
+    <div class="container-fluid py-3" style="background-color: white; margin-bottom: 5vh;">
         <h4 class="text-center mb-4"><b>Nilai-nilai Yayasan</b></h4>
 
         <div class="card-deck py-2" style="padding-left: 10vw; padding-right: 10vw;">
@@ -48,10 +48,35 @@
     <div class="container-fluid py-3" style="background-color: rgb(219,235,216);">
         <h4 class="text-center mb-4"><b>Informasi Wakaf</b></h4>
         <div class="row">
-            <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel" style="padding-left: 10vw; padding-right: 10vw;">
-                <img class="img-fluid" src="{% static 'img/aset.png' %}">
-                <img class="img-fluid" src="{% static 'img/wakif.png' %}">
-                <img class="img-fluid" src="{% static 'img/nazhir.png' %}">
+            <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel" style="height: 480px;">
+                    <div class="card card-info">
+                        <div class="card-body card-body-info">
+                            <img class="img-fluid" src="{% static 'img/aset.png' %}">
+                            <div class="subheading1 subheading1-info"><h4>Aset Wakaf</h4></div>
+                            <p class="subheading2 card-text subheading2-info">Aset Wakaf atau benda wakaf adalah kepemilikan saham pada klinik gigi dan tumbuh kembang anak yang akan didirikan oleh wakif. Saham tersebut akan diwakafkan oleh para wakif kepada nazhir untuk dikelola sesuai dengan peruntukan dan prinsip syariah Islam. Seluruh keuntungan bersih dari aset wakaf tersebut akan diberikan kepada masyarakat menjadi manfaat wakaf.</p>
+                        </div>
+                    </div>
+                    <div class="card card-info">
+                        <div class="card-body card-body-info">
+                            <img class="img-fluid" src="{% static 'img/wakif.png' %}">
+                            <div class="subheading1 subheading1-info"><h4>Wakif (Pewakaf)</h4></div>
+                            <p class="subheading2 card-text subheading2-info">Wakif boleh berasal perorangan ataupun organisasi maupun lembaga badan hukum. Wakif memiliki visi yang sama dan berkeinginan untuk mewakafkan sebagian hartanya untuk mendirikan aset wakaf produktif ini.</p>
+                        </div>
+                    </div>
+                    <div class="card card-info">
+                        <div class="card-body card-body-info">
+                            <img class="img-fluid" src="{% static 'img/nazhir.png' %}">
+                            <div class="subheading1 subheading1-info"><h4>Nazhir (Pengelola) Wakaf</h4></div>
+                            <p class="subheading2 card-text subheading2-info">Nazhir wakaf adalah pihak yang menerima harta benda wakaf/aset wakaf dari wakif untuk dikelola dan dikembangkan sesuai dengan peruntukannya. Dalam hal ini Yayasan Wakaf Produktif – Pengelola Aset Islami Indonesia (YWP-PAII) bertindak sebagai Nazhir Wakaf.</p>
+                        </div>
+                    </div>
+                    <div class="card card-info">
+                        <div class="card-body card-body-info">
+                            <img class="img-fluid" src="{% static 'img/nazhir.png' %}">
+                            <div class="subheading1 subheading1-info"><h4>Al-Mauquf'Alaih (Penerima) Wakaf</h4></div>
+                            <p class="subheading2 card-text subheading2-info">Mauquf ‘Alaih adalah pihak yang berhak menerima manfaat wakaf dengan kriteria yang tidak terbatas (dapat individu atau lembaga). </p>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
@@ -144,8 +169,8 @@
             width: 15px;
             height: 100px;
             position: absolute;
-            top: 25%;
-            margin-left: -65px;
+            top: 30%;
+            margin-left: -35px;
             display: block !important;
             border:0px solid black;
         }
@@ -154,8 +179,8 @@
             width: 15px;
             height: 100px;
             position: absolute;
-            top: 25%;
-            right: 0px;
+            top: 30%;
+            right: 20px;
             display: block !important;
             border:0px solid black;
         }
