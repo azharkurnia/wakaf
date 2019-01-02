@@ -7,6 +7,8 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 # Create your views here.
 response = {}
 def home(request):
+    layanan = Layanan.objects.all()
+    response['listLayanan'] = layanan
     fotoDonasi = FotoDonasi.objects.all()
     response['fotoDonasi'] = fotoDonasi
     fotoCarousel = CarouselPortofolio.objects.all()
