@@ -3,32 +3,53 @@
 {% load static %}
 {% block content %}
 
-    <div class="container py-3" style="background-color: 	#FFFFFF">
+    <div class="container-fluid py-3" style="background-color: 	#FFFFFF">
         <p class="px-3 mb-1 custom-bold"><b>Artikel</b></p>
         <h4 class="px-3 mb-4 custom-bold"><b>Artikel Rekomendasi</b></h4>
-        <div class="card-deck py-2 px-3" id="cara-kerja">
+        <div class="row">
+            <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel" style="height: 480px;">
 
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/carakerja1.png' %}">
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Wiraswasta</p></li>
+                <div class="card card-info">
+                    <img class="card-img-top" src="{% static '/img/carakerja1.png' %}">
+                    <div class="card-body card-body-info">
+                        <li class="label"><p class="tags custom-book">Wiraswasta</p></li>
 
-                    <div class="custom-bold"><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                        <div class="subheading1 subheading1-info"><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
+                        <p class="subheading2 card-text subheading2-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                    </div>
                 </div>
 
-            </div>
+                <div class="card card-info">
+                    <img class="card-img-top" src="{% static '/img/carakerja2.png' %}">
 
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/carakerja2.png' %}">
+                    <div class="card-body card-body-info">
+                        <li class="label"><p class="tags custom-book">Bisnis</p></li>
 
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Bisnis</p></li>
-
-                    <div class="custom-bold"><h4><b>Business Re-engineering</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                        <div class="subheading1 subheading1-info"><h4><b>Business Re-engineering</b>    </h4></div>
+                        <p class="subheading2 card-text subheading2-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                    </div>
                 </div>
 
+                <div class="card card-info">
+                    <img class="card-img-top" src="{% static '/img/carakerja2.png' %}">
+
+                    <div class="card-body card-body-info">
+                        <li class="label"><p class="tags custom-book">Bisnis</p></li>
+
+                        <div class="subheading1 subheading1-info"><h4><b>Business Re-engineering</b>    </h4></div>
+                        <p class="subheading2 card-text subheading2-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <img class="card-img-top" src="{% static '/img/carakerja1.png' %}">
+                    <div class="card-body card-body-info">
+                        <li class="label"><p class="tags custom-book">Wiraswasta</p></li>
+
+                        <div class="subheading1 subheading1-info"><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
+                        <p class="subheading2 card-text subheading2-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container" style="margin-top: 10%">
@@ -105,25 +126,53 @@
             </div>
         </div>
     </div>
-    <style>
 
-        .custom-book {
-            font-family: CircularStd-Book !important;
+    <style type="text/css">
+        .owl-prev {
+            width: 15px;
+            height: 100px;
+            position: absolute;
+            top: 30%;
+            margin-left: -35px;
+            display: block !important;
+            border:0px solid black;
         }
 
-        .custom-bold {
-            font-family: CircularStd-Bold !important;
+        .owl-next {
+            width: 15px;
+            height: 100px;
+            position: absolute;
+            top: 30%;
+            right: 20px;
+            display: block !important;
+            border:0px solid black;
         }
+        .owl-prev i, .owl-next i {font-size: 30px; color: #333;}
+        @media only screen and (max-width: 1025px) {
+            .owl-prev{
+                width: 1em;
+                right: 1em;
+                margin: 1em;
+                height: 1em;
+                top: 0.1em;
+                position: relative;
+                margin-left: 40%;
 
-        .custom-black {
-            font-family: CircularStd-Black !important;
-        }
+            }
 
-        .custom-medium {
-            font-family: CircularStd-Medium !important;
+            .owl-next{
+                width: 1em;
+                right: 1em;
+                margin: 1em;
+                height: 2em;
+                position: relative;
+                top: -31px;
+                margin-left: 60%;
+                margin-bottom: -30px;
+            }
+            .owl-dots {display: none;}
+
         }
     </style>
     </body>
-
-
 {% endblock %}
