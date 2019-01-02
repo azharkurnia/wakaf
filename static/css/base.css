@@ -23,3 +23,19 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.custom-book {
+    font-family: font-family: CircularStd-Book;
+}
+
+.custom-bold {
+    font-family: CircularStd-Bold;
+}
+
+.custom-black {
+    font-family: CircularStd-Black;
+}
+
+.custom-medium {
+    font-family: CircularStd-Medium;
+}

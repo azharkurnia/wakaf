@@ -6,13 +6,13 @@
     <body>
 
     <div class="container py-3" style="background-color: 	#FFFFFF">
-        <p class="px-3 mb-1"><b>Volunteer</b></p>
-        <h4 class="px-3 mb-4"><b>Bergabung menjadi Volunteer acara kami</b></h4>
+        <p class="px-3 mb-1 custom-bold"><b>Volunteer</b></p>
+        <h4 class="px-3 mb-4 custom-bold"><b>Bergabung menjadi Volunteer acara kami</b></h4>
         <div class="container contact-form py-3" style="background-color: lightgrey; padding-left: 20%;padding-right: 20%">
             <form method="post">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
+                        <div class="form-group custom-book">
                             <label for="kegiatan">Pilih nama kegiatan: *</label>
                             <select class="form-control" id="kegiatan">
                                 <option>Kegiatan 1</option>
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row custom-book">
                     <div class="col-md-6">
                         <div class="form-group">
                             <input required type="text" name="namadepan" class="form-control" placeholder="Nama depan *" value="" />
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row custom-book">
                     <div class="col-md-6">
                         <p style="display: inline-block;">Kelamin*</p>
                         <div class="form-check-inline" style="margin-left: 9% ">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row custom-book">
                     <div class="col-md-8">
                         <div class="form-group">
                             <input required type="text" name="alamat" class="form-control" placeholder="Alamat *" value="" />
@@ -76,50 +76,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center custom-book">
                     <label class="form-check-label text-center">
                         <input required class="subheading2 form-check-input" type="checkbox"> <span class="subheading2">Saya telah membaca dan setuju dengan syarat dan ketentuan yang berlaku</span>
                     </label>
-                    <button class="btn" id="button-volunteer"><strong>DAFTAR VOLUNTEER</strong></button>
+                    <button class="btn custom-black" id="button-volunteer"><strong>DAFTAR VOLUNTEER</strong></button>
                 </div>
             </form>
         </div>
 
         <div class="container">
-            <h4 class="px-3 mb-4" style="margin-top: 10%"><b>Kegiatan Volunteer Kami</b></h4>
+            <h4 class="px-3 mb-4 custom-bold" style="margin-top: 10%"><b>Kegiatan Volunteer Kami</b></h4>
 
             <div class="media border p-3">
                 <img class="img-fluid mr-3" src="{% static 'img/article1.png' %}" alt="John Doe">
                 <div class="media-body">
-                    <h4>3 Tips Sederhana Memulai Bisnis Waralaba</h4>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
+                    <h4 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h4>
+                    <p class="custom-book"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                     </p>
-                    <p style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
+                    <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
                 </div>
             </div>
 
             <div class="media border p-3">
                 <img class="img-fluid mr-3" src="{% static 'img/article2.png' %}" alt="John Doe">
                 <div class="media-body">
-                    <h4>3 Tips Sederhana Memulai Bisnis Waralaba</h4>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
+                    <h4 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h4>
+                    <p class="custom-book"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                     </p>
-                    <p style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
+                    <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
                 </div>
             </div>
             <div class="media border p-3">
                 <img class="img-fluid mr-3" src="{% static 'img/article3.png' %}" alt="John Doe">
                 <div class="media-body">
-                    <h4>3 Tips Sederhana Memulai Bisnis Waralaba</h4>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
+                    <h4 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h4>
+                    <p class="custom-book"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                     </p>
-                    <p style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
+                    <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
                 </div>
             </div>
         </div>
@@ -132,7 +132,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5>3 Tips Sederhana Memulai Bisnis Waralaba</h5>
+                    <h5 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h5>
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -140,7 +140,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="main">
-                        <p style="text-align: justify">
+                        <p class="custom-book" style="text-align: justify">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                             <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
                             <br>Lorem ipsum <br>dolor <br>sit<br>  amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
@@ -153,7 +153,7 @@
                 </div>
 
                 <!-- Modal footer -->
-                <div class="modal-footer">
+                <div class="modal-footer custom-bold">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
 
