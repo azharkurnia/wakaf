@@ -125,3 +125,29 @@ def deleteLayanan(request, layanan_id):
     layanan = Layanan.objects.get(pk=layanan_id)
     layanan.delete()
     return redirect('wakafadmin:pageLayanan')
+
+@login_required
+def pageEditTesti(request):
+    testi1 = Testimoni1.objects.all()
+    testi2 = Testimoni2.objects.all()
+    testi3 = Testimoni3.objects.all()
+    response = {'testi1':testi1, 'testi2':testi2, 'testi3':testi3}
+    return render(request, 'testi.html',response)
+
+@login_required
+@csrf_exempt
+def addTesti(request):
+    return 0
+
+@login_required
+def deleteTesti1(request):
+    return 0
+
+@login_required
+def deleteTesti2(request):
+    return 0
+
+@login_required
+def deleteTesti3(request):
+    return 0
+

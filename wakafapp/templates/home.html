@@ -65,45 +65,33 @@
     </div>
     <div class="container-fluid py-3" style="padding-left: 5%;padding-right: 5%">
         <p class="heading text-center mb-1"><b>APA YANG DAPAT KAMI BANTU</b></p>
-        <h5 class="text-center mb-4" style="font-family: CircularStd-Bold"><b>Kami menyediakan berbagai layanan untuk membantu usaha anda</b></h5>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner row w-100 mx-auto">
-                <div class="carousel-item col-md-4 active">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
-                            <div class="text-center custom-bold"><h4><b>Layanan #1</b>    </h4></div>
-                            <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+        <h5 class="text-center mb-4"><b>Kami menyediakan berbagai layanan untuk membantu usaha anda</b></h5>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner row w-100 h-100 mx-auto">
+
+                {% for layanan in listLayanan %}
+                    {% if forloop.first %}
+                    <div class="carousel-item col-md-4 active">
+                        <div class="card h-100">
+                            <div class="card-body" >
+                                <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
+                                <div class="text-center custom-bold"><h4><b>{{ layanan.judul }}</b>    </h4></div>
+                                <p class="card-text custom-book">{{ layanan.konten }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
-                            <div class="text-center custom-bold"><h4><b>Layanan #2</b>    </h4></div>
-                            <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                    {% else %}
+                    <div class="carousel-item col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img class="mx-auto d-block img-card" src="/media/layanan{% cycle '2.png' '3.png' '4.png' '1.png' %}">
+                                <div class="text-center custom-bold"><h4><b>{{ layanan.judul }}</b>    </h4></div>
+                                <p class="card-text custom-book">{{ layanan.konten }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
-                            <div class="text-center custom-bold"><h4><b>Layanan #3</b>    </h4></div>
-                            <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
-                            <div class="text-center custom-bold"><h4><b>Layanan #4</b>    </h4></div>
-                            <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                        </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
 
             </div>
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
