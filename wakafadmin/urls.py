@@ -15,6 +15,8 @@ urlpatterns = [
     url(r'^addCarouselHome/', addCarouselHome, name='addCarouselHome'),
     url(r'^pageLayanan/', pageLayanan, name='pageLayanan'),
     url(r'^addLayanan/', addLayanan, name='addLayanan'),
-    url(r'^deleteLayanan/(?P<layanan_id>[0-9]+)/$', deleteLayanan, name='deleteLayanan')
+    url(r'^deleteLayanan/(?P<layanan_id>[0-9]+)/$', deleteLayanan, name='deleteLayanan'),
+    url(r'^pageEditTesti/', pageEditTesti, name='pageEditTest'),
+    url(r'^addTesti1', addTesti1, name='addTesti'),
 
 ]
