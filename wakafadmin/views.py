@@ -105,7 +105,23 @@ def deleteCarouselHome(request, image_id):
 @login_required
 @csrf_exempt
 def addLayanan(request):
-    return 0
+    if request.method == 'POST':
+        judul = request.POST['judul']
+        konten = request.POST['konten']
+        layanan = Layanan(
+            judul=judul,
+            konten=konten
+        )
+        layanan.save()
+    return redirect('wakafadmin:pageLayanan')
+@login_required
+def pageLayanan(request):
+    listLayanan = Layanan.objects.all()
+    response['listLayanan'] = listLayanan
+    return render(request, 'layanan.html', response)
 
+@login_required
 def deleteLayanan(request, layanan_id):
-    return 0
+    layanan = Layanan.objects.get(pk=layanan_id)
+    layanan.delete()
+    return redirect('wakafadmin:pageLayanan')
