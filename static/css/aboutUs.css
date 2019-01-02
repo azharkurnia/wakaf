@@ -1,0 +1,48 @@
+@media screen and (min-width: 768px){
+	#camel-small{
+		display: none;
+	}
+	#custom-container-aboutUs {
+		padding-left: 30vw;
+		padding-right: 30vw;
+	}
+	#custom-container-aboutUs2 {
+		padding-left: 20vw;
+		padding-right: 20vw;
+	}
+	.row-atas-pengurus {
+        padding-left: 14vw;
+    }
+    .row-bawah-pengurus {
+        padding-left: 22vw;
+    }
+    .mapouter {
+    	text-align:right;height:500px;width:750px;
+    }
+    .gmap_canvas {
+    	overflow:hidden;background:none!important;height:500px;width:750px;
+    }
+}
+
+@media screen and (max-width: 768px){
+	#camel-big{
+		display: none;
+	}
+	#custom-container-aboutUs {
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+	#custom-container-aboutUs2 {
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+	.map-big {
+		display: none;
+	}
+	.mapouter {
+    	text-align:right;height:400px;width:300px;
+    }
+    .gmap_canvas {
+    	overflow:hidden;background:none!important;height:400px;width:300px;
+    }
+}

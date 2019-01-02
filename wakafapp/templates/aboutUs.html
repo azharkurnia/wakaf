@@ -1,0 +1,252 @@
+{% extends "layout/base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+
+    <body>
+    <div class="container-fluid bg-whi p-0">
+        <div id="camel-big">
+            <img class="img-fluid" src="{% static 'img/camel.png' %}">
+        </div>
+        <div id="camel-small">
+            <img class="img-fluid" src="{% static 'img/camel-small.png' %}">
+        </div>
+    </div>
+
+    <div class="container-fluid py-3" style="background-color: white">
+        <h4 class="text-center mb-4"><b>Nilai-nilai Yayasan</b></h4>
+
+        <div class="card-deck py-2" style="padding-left: 10vw; padding-right: 10vw;">
+
+            <div class="card">
+                <div class="card-body">
+                    <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
+                    <div class="subheading1 text-center"><h4>PROFESIONAL</h4></div>
+                    <p class="subheading2 card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
+                    <div class="subheading1 text-center"><h4>AMANAH</h4></div>
+                    <p class="subheading2 card-text">Integer dapibus orci in sapien venenatis, non suscipit dolor lobortis. Vivamus condimentum viverra odio eu accumsan.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
+                    <div class="subheading1 text-center"><h4>NILAI TAMBAH</h4></div>
+                    <p class="subheading2 card-text">Kami berkomitmen untuk Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid py-3" style="background-color: rgb(219,235,216);">
+        <h4 class="text-center mb-4"><b>Informasi Wakaf</b></h4>
+        <div class="row">
+            <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel" style="padding-left: 10vw; padding-right: 10vw;">
+                <img class="img-fluid" src="{% static 'img/aset.png' %}">
+                <img class="img-fluid" src="{% static 'img/wakif.png' %}">
+                <img class="img-fluid" src="{% static 'img/nazhir.png' %}">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-3" id="custom-container-aboutUs" style="background-color: white;">
+        <h4 class="text-center mb-4"><b>Manfaat Wakaf</b></h4>
+        <p style="color: rgb(65,76,98);">Manfaat wakaf sangat besar karena tidak ada kriteria tertentu bagi penerimanya. Oleh karena itu, manfaat wakaf dapat diberikan untuk:<br>
+        a.  Layanan secara gratis di klinik wakaf (pada hari tertentu) untuk masyarakat dhuafa<br>
+        b.  Beasiswa bagi pemuda-pemudi dhuafa sekaligus pembimbingan sekolah ataupun keterampilan untuk siap menempuh dunia kerja.<br>
+        c.  Mencanangkan program berkelanjutan yang bekerjasama dengan pemerintah daerah setempat (Contoh: Program Sekolah Bebas Caries)<br>
+        d.  Peningkatan sarana dan prasarana ibadah serta meningkatkan kualitas ibadah masyarakat muslim<br>
+        e.  Mengembangkan aset wakaf dalam bentuk penambahan alat, bangunan, dan infrastruktur lainnya untuk menunjang sustainability dan berkembangnya aset wakaf di masa yang akan datang<br>
+        f.  Kemajuan dan peningkatan ekonomi umat serta kemajuan kesejahteraan umum lainnya yang tidak bertentangan dengan syariah dan peraturan perundang-undangan wakaf
+        </p>
+    </div>
+
+    <div class="container-fluid py-3" style="background-image: url('/static/img/bg.png');">
+        <h4 class="text-center mb-4"><b>Pengurus Yayasan</b></h4>
+        <div class="row row-atas-pengurus" style="margin-top: 10vh; margin-bottom: 10vh;">
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Prof. DR. Aliasar, M.Ed.</p>
+                <p class="margin-2">Pembina</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">dr. Sakina Umar, Sp. THT</p>
+                <p class="margin-2">Pembina</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Afdhal Aliasar, ST. MM.</p>
+                <p class="margin-2">Pendiri dan Ketua Umum</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Banu Muhammad, SE. MSE.</p>
+                <p class="margin-2">Wakil Ketua</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Arief Aditya, SE</p>
+                <p class="margin-2">Sekretaris</p>
+            </div>
+        </div>
+        <div class="row row-bawah-pengurus">
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Raymon Aser Nasution, SE. MM.</p>
+                <p class="margin-2">Bendahara</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Muhammad Shaddam Muzaki.</p>
+                <p class="margin-2">Wakil Bendahara</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Naufal Farras Fajar</p>
+                <p class="margin-2">Tim Kreatif</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="{% static 'img/testiava3.png' %}">
+                <p class="margin5">Ir. Emil B. Sumirat</p>
+                <p class="margin-2">Pengawas</p>
+            </div>
+        </div>
+
+        <div class="container-fluid py-3" id="custom-container-aboutUs2" style="margin-bottom: 5vh; margin-top: 40vh;">
+            <h4 class="text-center mb-4"><b>Legalitas Yayasan</b></h4>
+            <p style="color: rgb(65,76,98);">1. Akta Pendirian Yayasan No. 53 tanggal 24 April tahun 2009 Notaris : Irma Rachmawati, SH<br>
+               2. Akta Perubahan No. 54 tanggal 20 Maret 2015, Notaris : Titin Nurnaeni, SH., M.Kn<br>
+               3. Keputusan Menteri Hukum dan Hak Asasi Manusia Republik Indonesia Nomor. AHU-AHA 01.06-778 Tahun 2013<br>
+               4. Surat Keputusan Lembaga Nadzir No. W5a/26/BH/14/Tahun 2010
+               5. Surat Keputusan Dinsos Bandung No. 062/975 – Dinsos
+               6. Izin BWI No. 3.3. 00049
+               7. NPWP 21. 125.025.3-424.000
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid py-3" style="text-align: center; margin-bottom: 10vh;">
+        <h4 class="text-center mb-4"><b>Lokasi Yayasan</b></h4>
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="767" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Jalan%20Palapa%201%20No.4%2C%20RT.1%2FRW.5%2C%20Pasar%20Minggu&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.crocothemes.net">car dealer themes wordpress</a></div></div>
+        </div>
+        
+    </div>
+    <style>
+        .owl-prev {
+            width: 15px;
+            height: 100px;
+            position: absolute;
+            top: 25%;
+            margin-left: -65px;
+            display: block !important;
+            border:0px solid black;
+        }
+
+        .owl-next {
+            width: 15px;
+            height: 100px;
+            position: absolute;
+            top: 25%;
+            right: 0px;
+            display: block !important;
+            border:0px solid black;
+        }
+        .owl-prev i, .owl-next i {font-size: 30px; color: #333;}
+        @media only screen and (max-width: 1025px) {
+            .owl-prev{
+                width: 1em;
+                right: 1em;
+                margin: 1em;
+                height: 1em;
+                top: 0.1em;
+                position: relative;
+                margin-left: 40%;
+
+            }
+
+            .owl-next{
+                width: 1em;
+                right: 1em;
+                margin: 1em;
+                height: 2em;
+                position: relative;
+                top: -31px;
+                margin-left: 60%;
+                margin-bottom: -30px;
+            }
+            .owl-dots {display: none;}
+
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .owl-carousel .owl-item img {
+            max-height: 240px;
+            width: auto;
+        }
+
+        div.text-center > a {
+            color: white;
+            font-weight: bolder;
+
+        }
+        div.text-center > a:link {
+            color: white;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        #button-donasi, #button-donasi-modal {
+            color: white;
+            background-color: #5E9A78;
+            border-radius: 15px;
+            margin-top: 5%;
+        }
+
+        div.card-footer {
+            margin-top: 30px;
+            background-color: #F5DD85;
+        }
+
+        .heading {
+            font-family: CircularStd-Black;
+            color: #5E9A78;
+        }
+
+        .subheading1 {
+            font-family: CircularStd-Bold
+        }
+
+        .subheading2 {
+            font-family: CircularStd-Book
+        }
+
+        {
+            font-family: CircularStd-Medium
+        }
+        .margin5 {
+            margin-top: 5vh;
+        }
+        .margin-2 {
+            margin-top: -2vh;
+        }
+        
+        .mapouter {
+            display: inline-block;
+        }
+
+    </style>
+    </body>
+{% endblock %}
+
+
