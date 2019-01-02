@@ -17,10 +17,11 @@ def home(request):
 def program(request):
     return render(request, "program.html")
 
+def aboutUs(request):
+    return render(request, "aboutUs.html")
 
 def volunteer(request):
     return render(request, "volunteer.html")
-
 
 def article(request):
     return render(request, "article.html")
