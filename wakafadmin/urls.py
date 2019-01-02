@@ -10,5 +10,8 @@ urlpatterns = [
     url(r'^tables/', tables, name='tables'),
     url(r'^uploadFotoDonasi/', uploadFotoDonasi, name='uploadFotoDonasi'),
     url(r'^pageFotoDonasi/', pageFotoDonasi, name='pageFotoDonasi'),
+    url(r'^pageCarouselHome/', pageCarouselHome, name='pageCarouselHome'),
+    url(r'^deleteCarouselHome/(?P<image_id>[0-9]+)/$', deleteCarouselHome, name='deleteCarouselHome'),
+    url(r'^addCarouselHome/', addCarouselHome, name='addCarouselHome'),
 
 ]

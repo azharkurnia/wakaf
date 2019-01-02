@@ -17,10 +17,9 @@
         </div>
         <div class="row">
             <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel">
-                <img class=img-fluid" src="{% static 'img/carousel2.png'%}">
-                <img class=img-fluid" src="{% static 'img/carousel1.png'%}">
-                <img class=img-fluid" src="{% static 'img/carousel3.png'%}">
-                <img class=img-fluid" src="{% static 'img/hero.png'%}">
+                {% for foto in fotoCarousel %}
+                    <img class=img-fluid" src="{{ foto.urlFoto }}">
+                {% endfor %}
             </div>
         </div>
     </div>
