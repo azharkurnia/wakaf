@@ -71,25 +71,25 @@
 
                 {% for layanan in listLayanan %}
                     {% if forloop.first %}
-                    <div class="carousel-item col-md-4 active">
-                        <div class="card h-100">
-                            <div class="card-body" >
-                                <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
-                                <div class="text-center custom-bold"><h4><b>{{ layanan.judul }}</b>    </h4></div>
-                                <p class="card-text custom-book">{{ layanan.konten }}</p>
+                        <div class="carousel-item col-md-4 active">
+                            <div class="card h-100">
+                                <div class="card-body" >
+                                    <img class="mx-auto d-block img-card" src="{% static '/img/layanan1.png' %}">
+                                    <div class="text-center custom-bold"><h4><b>{{ layanan.judul }}</b>    </h4></div>
+                                    <p class="card-text custom-book">{{ layanan.konten }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% else %}
-                    <div class="carousel-item col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img class="mx-auto d-block img-card" src="/media/layanan{% cycle '2.png' '3.png' '4.png' '1.png' %}">
-                                <div class="text-center custom-bold"><h4><b>{{ layanan.judul }}</b>    </h4></div>
-                                <p class="card-text custom-book">{{ layanan.konten }}</p>
+                        <div class="carousel-item col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img class="mx-auto d-block img-card" src="/media/layanan{% cycle '2.png' '3.png' '4.png' '1.png' %}">
+                                    <div class="text-center custom-bold"><h4><b>{{ layanan.judul }}</b>    </h4></div>
+                                    <p class="card-text custom-book">{{ layanan.konten }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endif %}
                 {% endfor %}
 
@@ -446,6 +446,23 @@
         }
         .carousel-control-next{
             margin-right: -10%;
+        }
+
+
+        .custom-book {
+            font-family: CircularStd-Book !important;
+        }
+
+        .custom-bold {
+            font-family: CircularStd-Bold !important;
+        }
+
+        .custom-black {
+            font-family: CircularStd-Black !important;
+        }
+
+        .custom-medium {
+            font-family: CircularStd-Medium !important;
         }
     </style>
     </body>

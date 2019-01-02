@@ -25,17 +25,17 @@
 }
 
 .custom-book {
-    font-family: font-family: CircularStd-Book;
+    font-family: CircularStd-Book !important;
 }
 
 .custom-bold {
-    font-family: CircularStd-Bold;
+    font-family: CircularStd-Bold !important;
 }
 
 .custom-black {
-    font-family: CircularStd-Black;
+    font-family: CircularStd-Black !important;
 }
 
 .custom-medium {
-    font-family: CircularStd-Medium;
+    font-family: CircularStd-Medium !important;
 }
