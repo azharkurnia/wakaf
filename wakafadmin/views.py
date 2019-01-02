@@ -93,7 +93,7 @@ def addCarouselHome(request):
         print("simpan foto carousel")
     return redirect('wakafadmin:pageCarouselHome')
 
-
+@login_required
 def deleteCarouselHome(request, image_id):
     fs = FileSystemStorage()
     foto = CarouselPortofolio.objects.get(pk=image_id)
@@ -101,3 +101,27 @@ def deleteCarouselHome(request, image_id):
     foto.delete()
     print("hapus gambar")
     return redirect('wakafadmin:tables')
+
+@login_required
+@csrf_exempt
+def addLayanan(request):
+    if request.method == 'POST':
+        judul = request.POST['judul']
+        konten = request.POST['konten']
+        layanan = Layanan(
+            judul=judul,
+            konten=konten
+        )
+        layanan.save()
+    return redirect('wakafadmin:pageLayanan')
+@login_required
+def pageLayanan(request):
+    listLayanan = Layanan.objects.all()
+    response['listLayanan'] = listLayanan
+    return render(request, 'layanan.html', response)
+
+@login_required
+def deleteLayanan(request, layanan_id):
+    layanan = Layanan.objects.get(pk=layanan_id)
+    layanan.delete()
+    return redirect('wakafadmin:pageLayanan')

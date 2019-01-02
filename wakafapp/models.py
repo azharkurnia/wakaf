@@ -24,6 +24,7 @@ class Donatur(models.Model):
 
 
 class Layanan(models.Model):
+    judul = models.CharField(max_length=140, blank=False)
     konten = models.TextField(blank=False)
 
 

@@ -1,0 +1,88 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Tambah Layanan
+        </div>
+
+        <div class="card-body">
+
+            <form id="formLayanan" name="form" method="POST" action="{% url 'wakafadmin:addLayanan' %}" >
+                {% csrf_token %}
+                <div class="row m-2">
+                    Nama Layanan
+                    <div class="col">
+                        <input required type="text" class="form-control" name="judul" placeholder="Nama layanan">
+                    </div>
+                </div>
+                <div class="row m-2">
+
+                    Detail Layanan
+                    <div class="col">
+                        <input required type="text" class="form-control" name="konten" placeholder="Detail layanan">
+                    </div>
+                </div>
+                <button class="btn btn-info" type="submit">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Daftar Layanan
+        </div>
+
+
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-cantik" id="carouselTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Detail Konten</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Detail Konten</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                    <tbody class="table-cantik">
+                    {% for layanan in listLayanan %}
+                        <tr>
+                            <td><p>{{ layanan.judul }}</p></td>
+                            <td><p>{{ layanan.konten }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteLayanan({{ layanan.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var deleteLayanan = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteLayanan/"+id+"/",
+                success: function() {location.reload();}
+            });
+        }
+
+        function refreshTable() {
+            $("#tableLayanan").load(" #tableLayanan > *");
+            return false;
+        }
+    </script>
+{% endblock %}

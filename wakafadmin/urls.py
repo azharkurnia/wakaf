@@ -13,5 +13,8 @@ urlpatterns = [
     url(r'^pageCarouselHome/', pageCarouselHome, name='pageCarouselHome'),
     url(r'^deleteCarouselHome/(?P<image_id>[0-9]+)/$', deleteCarouselHome, name='deleteCarouselHome'),
     url(r'^addCarouselHome/', addCarouselHome, name='addCarouselHome'),
+    url(r'^pageLayanan/', pageLayanan, name='pageLayanan'),
+    url(r'^addLayanan/', addLayanan, name='addLayanan'),
+    url(r'^deleteLayanan/(?P<layanan_id>[0-9]+)/$', deleteLayanan, name='deleteLayanan')
 
 ]

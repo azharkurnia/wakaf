@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('#registrantTable').DataTable({
         "order": [[ 7, "desc" ]]
     });
-  $('#messageTable').DataTable();
+  $('#carouselTable').DataTable();
   $("#paymentTable").DataTable();
   $("#aribaTable").DataTable();
   $("#descTable").DataTable();
