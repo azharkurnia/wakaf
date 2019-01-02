@@ -9,17 +9,19 @@
     </div>
 
     <div class="container bg-white py-3">
-        <div class="row">
-            <h5 class="heading px-4" style="font-family: CircularStd-Black"> PORTOFOLIO KAMI </h5>
-        </div>
-        <div class="row">
-            <h2 class="subheading1 px-4"><b>Kami mengembangkan berbagai layanan yang memudahkan masyarakat</b></h2>
-        </div>
-        <div class="row">
-            <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel">
-                {% for foto in fotoCarousel %}
-                    <img class=img-fluid" src="{{ foto.urlFoto }}">
-                {% endfor %}
+        <div class="container px-3">
+            <div class="row">
+                <h5 class="heading px-4" style="font-family: CircularStd-Black"> PORTOFOLIO KAMI </h5>
+            </div>
+            <div class="row">
+                <h2 class="subheading1 px-4"><b>Kami mengembangkan berbagai layanan yang memudahkan masyarakat</b></h2>
+            </div>
+            <div class="row">
+                <div class="px-sm-0 px-lg-0 px-md-0 px-xl-5 owl-carousel">
+                    {% for foto in fotoCarousel %}
+                        <img class=img-fluid" src="{{ foto.urlFoto }}">
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
@@ -61,9 +63,9 @@
             </div>
         </div>
     </div>
-
-    <div class="container-fluid" style="padding-left: 5%;padding-right: 5%">
-        <h1 class="text-center mb-3">Bootstrap Multi-Card Carousel</h1>
+    <div class="container-fluid py-3" style="padding-left: 5%;padding-right: 5%">
+        <p class="heading text-center mb-1"><b>APA YANG DAPAT KAMI BANTU</b></p>
+        <h5 class="text-center mb-4"><b>Kami menyediakan berbagai layanan untuk membantu usaha anda</b></h5>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner row w-100 mx-auto">
                 <div class="carousel-item col-md-4 active">
@@ -116,7 +118,7 @@
     </div>
 
 
-    <div class="container-fluid py-3 bg-light">
+    <div class="container-fluid py-3" style="background-color: 	#FAF6F3">
         <p class="heading text-center mb-1">TESTIMONI</p>
         <h5 class="text-center mb-4"><b>Kata mereka tentang WAKAF</b></h5>
 
@@ -448,14 +450,14 @@
         }
 
         #myCarousel {
-            margin-left: 50px;
-            margin-right: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
         }
         .carousel-control-prev{
-            margin-left: -25px;
+            margin-left: -10%;
         }
         .carousel-control-next{
-            margin-right: -25px;
+            margin-right: -10%;
         }
     </style>
     </body>
