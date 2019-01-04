@@ -262,3 +262,52 @@ def deleteTesti3(request, testi_id):
     testi.delete()
     return redirect('wakafadmin:pageEditTesti')
 
+@login_required
+def pageProgram(request):
+    response['listProgram'] = UnitBisnis.objects.all()
+    response['listIndikator'] = IndikatorUnitBisnis.objects.all()
+    return render(request,'pageEditProgram.html',response)
+
+@login_required
+@csrf_exempt
+def addProgram(request):
+    fs = FileSystemStorage()
+    if request.method == 'POST' and request.FILES['fotoProgram']:
+        myfile = request.FILES['fotoProgram']
+        judul = request.POST['nama']
+        konten = request.POST['konten']
+        # print(myfile.name, type(myfile.name))
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        urlFotoProgram = UnitBisnis(
+            namaFile=myfile.name,
+            urlFoto=uploaded_file_url,
+            judul=judul,
+            konten=konten
+        )
+        urlFotoProgram.save()
+        print("simpan program")
+    return render(request,'pageEditProgram.html')
+
+@login_required
+@csrf_exempt
+def addIndikator(request, program_id):
+    if request.method == 'POST':
+        indikator = request.POST['indikator']
+        indikatorProgram = IndikatorUnitBisnis(parent=UnitBisnis.objects.get(pk=program_id), indikator=indikator)
+        indikatorProgram.save()
+    return redirect('wakafadmin:pageProgram')
+
+@login_required
+def deleteProgram(request, program_id):
+    fs = FileSystemStorage()
+    program = UnitBisnis.objects.get(pk=program_id)
+    fs.delete(program.namaFile)
+    program.delete()
+    return redirect('wakafadmin:pageProgram')
+
+@login_required
+def deleteIndikator(request, indikator_id):
+    indikator = IndikatorUnitBisnis.objects.get(pk=indikator_id)
+    indikator.delete()
+    return redirect('wakafadmin:pageProgram')
