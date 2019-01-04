@@ -299,3 +299,35 @@ def deleteProgram(request, program_id):
     program.delete()
     return redirect('wakafadmin:pageProgram')
 
+@login_required
+@csrf_exempt
+def addArtikel(request):
+    fs = FileSystemStorage()
+    if request.method == 'POST' and request.FILES['fotoProgram']:
+        myfile = request.FILES['fotoProgram']
+        judul = request.POST['nama']
+        konten = request.POST['konten']
+        indikator = request.POST['indikator']
+        # print(myfile.name, type(myfile.name))
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+
+        urlFotoProgram = UnitBisnis(
+            namaFile=myfile.name,
+            urlFoto=uploaded_file_url,
+            judul=judul,
+            konten=konten,
+            indikator=indikator
+        )
+        urlFotoProgram.save()
+        print("simpan program")
+    return redirect('wakafadmin:pageProgram')
+
+@login_required
+def deleteArtikel(request, program_id):
+    fs = FileSystemStorage()
+    program = UnitBisnis.objects.get(pk=program_id)
+    fs.delete(program.namaFile)
+    program.delete()
+    return redirect('wakafadmin:pageProgram')
+

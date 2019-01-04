@@ -1,0 +1,152 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+    <div class="card mb-3 mt-2">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Form Tambah Artikel
+        </div>
+
+        <div class="card-body">
+
+            <form id="formProgram" name="form" method="POST" action="{% url 'wakafadmin:addArtikel' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row m-2">
+                    <div class="col-2">
+                        Judul Artikel
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="nama" placeholder="Contoh: MHDC Pesona Square">
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-2">
+                        Deskripsi
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="konten" placeholder="Tulis deskripsi singkat disini">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-2">
+                        Indikator
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="indikator" placeholder="Tulis detail indikator">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-2">
+                        Foto
+                    </div>
+                    <div class="col">
+                        <input required type="file" name="fotoProgram">
+                    </div>
+                </div>
+                <button class="btn btn-info" type="submit">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Daftar Program
+        </div>
+
+
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-cantik" id="carouselTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nama Program</th>
+                        <th>Konten</th>
+                        <th>Detail Indikator</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nama Program</th>
+                        <th>Konten</th>
+                        <th>Detail Indikator</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                    <tbody class="table-cantik">
+
+                    {% for program in listProgram %}
+                        <tr>
+                            <td><img src="{{ program.urlFoto }}" style="width: 100%"> </td>
+                            <td><p>{{ program.judul }}</p></td>
+                            <td><p>{{ program.konten }}</p></td>
+                            <td><p>{{ program.indikator }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteProgram({{ program.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        {#$( "#formIndikator" ).submit(function( e ) {#}
+        {#    e.preventDefault();#}
+        {#    var program_id = $('#program').val();#}
+        {#    $.ajax({#}
+        {#        type:'POST',#}
+        {#        url:"/wakaf_admin/addIndikator/"+program_id+"/",#}
+        {#        data: {#}
+        {#            program_id:program_id,#}
+        {#            indikator:$('#indikator').val(),#}
+        {#            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()#}
+        {#        },#}
+        {#        success:function () {#}
+        {#            alert("BERHASIL");#}
+        {#            location.reload();#}
+        {#        }#}
+        {#    });#}
+        {#  });#}
+
+        function refreshTable() {
+            $("#tableLayanan").load(" #tableLayanan > *");
+            return false;
+        }
+
+        var deleteProgram = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteProgram/"+id+"/",
+                success: function() {
+                    alert("berhasil hapus program");
+                    location.reload();
+                }
+            });
+        };
+
+    </script>
+
+    <style>
+        img {
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+{% endblock %}

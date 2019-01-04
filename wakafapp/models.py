@@ -53,7 +53,7 @@ class Testimoni3(models.Model):
 
 
 class UnitBisnis(models.Model):
-    namaFile = models.TextField(blank=False)
+    namaFile = models.TextField(blank=False, default="null")
     urlFoto = models.URLField()
     judul = models.CharField(max_length=140, blank=False)
     konten = models.TextField(blank=False)
