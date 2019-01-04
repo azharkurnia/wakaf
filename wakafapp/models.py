@@ -59,30 +59,23 @@ class UnitBisnis(models.Model):
     konten = models.TextField(blank=False)
     indikator = models.TextField(default="null")
 
-
-class ArtikelRekomendasi(models.Model):
-    namaFile = models.TextField(blank=False)
-    urlFoto = models.URLField()
-    judul = models.CharField(max_length=140, blank=False)
-    konten_short = models.CharField(max_length=140, blank=False)
-    konten = models.TextField(blank=False)
-    tags = models.CharField(max_length=20)
-
-
 class Artikel(models.Model):
     namaFile = models.TextField(blank=False)
     urlFoto = models.URLField()
     judul = models.CharField(max_length=140, blank=False)
-    konten_short = models.CharField(max_length=140, blank=False)
+    konten_short = models.TextField(max_length=400, blank=False)
     konten = models.TextField(blank=False)
     tags = models.CharField(max_length=20)
 
+
+class ArtikelRekomendasi(models.Model):
+    parent = models.ForeignKey(Artikel, blank=False, default=None)
 
 class KegiatanVolunteer(models.Model):
     namaFile = models.TextField(blank=False)
     urlFoto = models.URLField()
     judul = models.CharField(max_length=140, blank=False)
-    konten_short = models.CharField(max_length=140, blank=False)
+    konten_short = models.TextField(max_length=400, blank=False)
     konten = models.TextField(blank=False)
     tags = models.CharField(max_length=20)
 

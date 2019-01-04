@@ -61,6 +61,63 @@
     </div>
 
 
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Data Volunteer
+        </div>
+
+
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-cantik" id="aribaTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Kegiatan</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Nomor HP</th>
+                        <th>email</th>
+                        <th>Alamat</th>
+                        <th>Domisili</th>
+                        <th>Waktu Daftar</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Kegiatan</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Nomor HP</th>
+                        <th>email</th>
+                        <th>Alamat</th>
+                        <th>Domisili</th>
+                        <th>Waktu Daftar</th>
+                    </tr>
+                    </tfoot>
+                    <tbody class="table-cantik">
+                    {% for volunteer in volunteerList %}
+                        <tr>
+                            <td>{{ volunteer.kegiatan }}</td>
+                            <td>{{ volunteer.nama }}</td>
+                            <td>{{ volunteer.kelamin }}</td>
+                            <td>{{ volunteer.birth }}</td>
+                            <td>{{ volunteer.noHp }}</td>
+                            <td>{{ volunteer.email }}</td>
+                            <td>{{ volunteer.alamat }}</td>
+                            <td>{{ volunteer.domisili }}</td>
+                            <td><span class='hide'>{{ volunteer.created_on|date:"Ymd" }}</span>{{ volunteer.created_on|date:"d/m/Y" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         function refreshTable() {

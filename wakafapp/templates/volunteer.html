@@ -14,11 +14,11 @@
                     <div class="col-md-12">
                         <div class="form-group custom-book">
                             <label for="kegiatan">Pilih nama kegiatan: *</label>
-                            <select class="form-control" id="kegiatan">
-                                <option>Kegiatan 1</option>
-                                <option>Kegiatan 2</option>
-                                <option>Kegiatan 3</option>
-                                <option>Kegiatan 4</option>
+                            <select required class="form-control" id="kegiatan" name="kegiatan">
+                                <option value="">Pilih kegiatan</option>
+                                {% for kegiatan in listKegiatanVolunteer %}
+                                    <option value="{{ kegiatan.judul }}">{{ kegiatan.judul }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
@@ -46,12 +46,12 @@
                         <p style="display: inline-block;">Kelamin*</p>
                         <div class="form-check-inline" style="margin-left: 9% ">
                             <label class="form-check-label" for="radio1">
-                                <input required type="radio" class="form-check-input" id="lakilaki" name="optradio" value="lakilaki" checked>Laki-laki
+                                <input required type="radio" class="form-check-input" id="lakilaki" name="kelamin" value="lakilaki" checked>Laki-laki
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label" for="radio2">
-                                <input required type="radio" class="form-check-input" id="perempuan" name="optradio" value="perempuan">Perempuan
+                                <input required type="radio" class="form-check-input" id="perempuan" name="kelamin" value="perempuan">Perempuan
                             </label>
                         </div>
                     </div>
@@ -84,83 +84,57 @@
                 </div>
             </form>
         </div>
+        <div class="container-fluid" style="margin-top: 5%">
+            <h4 class="px-3 mb-4 custom-bold" style="margin-top: 5%"><b>Kegiatan Volunteer Kami</b></h4>
 
-        <div class="container">
-            <h4 class="px-3 mb-4 custom-bold" style="margin-top: 10%"><b>Kegiatan Volunteer Kami</b></h4>
+            {% for kegiatan in listKegiatanVolunteer %}
 
-            <div class="media border p-3">
-                <img class="img-fluid mr-3" src="{% static 'img/article1.png' %}" alt="John Doe">
-                <div class="media-body">
-                    <h4 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h4>
-                    <p class="custom-book"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                    </p>
-                    <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
-                </div>
-            </div>
+                <div class="media border p-3">
+                    <img src="{{ kegiatan.urlFoto }}" class="img-media-big mr-3">
+                    <div class="media-body">
+                        <img src="{{ kegiatan.urlFoto }}" class="img-media-small mr-3 mb-3">
 
-            <div class="media border p-3">
-                <img class="img-fluid mr-3" src="{% static 'img/article2.png' %}" alt="John Doe">
-                <div class="media-body">
-                    <h4 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h4>
-                    <p class="custom-book"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                    </p>
-                    <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
-                </div>
-            </div>
-            <div class="media border p-3">
-                <img class="img-fluid mr-3" src="{% static 'img/article3.png' %}" alt="John Doe">
-                <div class="media-body">
-                    <h4 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h4>
-                    <p class="custom-book"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                    </p>
-                    <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal">... Baca Selengkapnya</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h5 class="custom-bold">3 Tips Sederhana Memulai Bisnis Waralaba</h5>
-
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="main">
-                        <p class="custom-book" style="text-align: justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                            <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                            <br>Lorem ipsum <br>dolor <br>sit<br>  amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada.
-
-                        </p>
+                        <h4 class="custom-bold">{{ kegiatan.judul }}</h4>
+                        <p class="custom-book">{{ kegiatan.konten_short }}</p>
+                        <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal{{ kegiatan.pk }}">... Baca Selengkapnya</p>
                     </div>
                 </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer custom-bold">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                <div class="modal fade" id="myModal{{ kegiatan.pk }}">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <img src="{{ kegiatan.urlFoto }}" class="img-modal">
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="main">
+                                    <h5 class="text-center">{{ kegiatan.judul }}</h5>
+
+                                    <p style="text-align: justify">{{ kegiatan.konten }}</p>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
+            {% endfor %}
 
+        </div>
+
+    </div>
     </body>
 
     <style>
@@ -186,5 +160,47 @@
         .custom-medium {
             font-family: CircularStd-Medium !important;
         }
+        .tags {
+            background: 	#EAF9F4;
+            text-align: center;
+            border-radius: 30px 30px 30px 30px;
+            color: #0bba89;
+            padding: 5px 10px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 0;
+        }
+        .label {
+            padding: 5% 5%;
+            display: inline-block;
+        }
+
+        .img-modal{
+            width: 300px;
+            height: 200px;
+            margin-left: auto;
+            margin-right:-10px;
+            display: block
+
+        }
+        @media only screen and (max-width: 767px) {
+            .img-media-big{
+                display: none;
+            }
+            .img-media-small{
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .img-media-small{
+                display: none;
+            }
+            .img-media-big{
+                width: 300px;
+                height: 200px;
+            }
+        }
+
     </style>
 {% endblock %}

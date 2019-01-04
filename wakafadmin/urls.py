@@ -23,5 +23,13 @@ urlpatterns = [
     url(r'^deleteTesti3/(?P<testi_id>[0-9]+)/$', deleteTesti3, name='deleteTesti3'),
     url(r'^pageProgram/', pageProgram, name='pageProgram'),
     url(r'^addProgram/', addProgram, name='addProgram'),
-    url(r'^deleteProgram/(?P<program_id>[0-9]+)/$', deleteProgram, name='deleteProgram')
+    url(r'^deleteProgram/(?P<program_id>[0-9]+)/$', deleteProgram, name='deleteProgram'),
+    url(r'^pageArtikel/', pageArtikel, name='pageArtikel'),
+    url(r'^addArtikel/', addArtikel, name='addArtikel'),
+    url(r'^deleteArtikel/(?P<artikel_id>[0-9]+)/$', deleteArtikel, name='deleteArtikel'),
+    url(r'^addArtikelRekomendasi/', addArtikelRekomendasi, name='addArtikelRekomendasi'),
+    url(r'^deleteArtikelRekomendasi/(?P<artikel_id>[0-9]+)/$', deleteArtikelRekomendasi, name='deleteArtikelRekomendasi'),
+    url(r'^pageKegiatanVolunteer/', pageKegiatanVolunteer, name='pageKegiatanVolunteer'),
+    url(r'^addKegiatanVolunteer/', addKegiatanVolunteer, name='addKegiatanVolunteer'),
+    url(r'^deleteKegiatanVolunteer/(?P<kegiatan_id>[0-9]+)/$', deleteKegiatanVolunteer, name='deleteKegiatanVolunteer'),
 ]

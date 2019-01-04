@@ -23,6 +23,7 @@ def show_login(request):
 def tables(request):
     donaturList = Donatur.objects.all()
     response['donaturList'] = donaturList
+    response['volunteerList'] = Volunteer.objects.all()
     return render(request, 'dashboard.html', response)
 
 
@@ -300,11 +301,18 @@ def deleteProgram(request, program_id):
     return redirect('wakafadmin:pageProgram')
 
 @login_required
+def pageArtikel(request):
+    response['listArtikel'] = Artikel.objects.all()
+    response['listArtikelRekomendasi'] = ArtikelRekomendasi.objects.all()
+
+    return render(request,'pageArtikel.html',response)
+
+@login_required
 @csrf_exempt
 def addArtikel(request):
     fs = FileSystemStorage()
-    if request.method == 'POST' and request.FILES['fotoProgram']:
-        myfile = request.FILES['fotoProgram']
+    if request.method == 'POST' and request.FILES['fotoArtikel']:
+        myfile = request.FILES['fotoArtikel']
         judul = request.POST['nama']
         konten = request.POST['konten']
         indikator = request.POST['indikator']
@@ -312,22 +320,77 @@ def addArtikel(request):
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
 
-        urlFotoProgram = UnitBisnis(
+        artikel = Artikel(
             namaFile=myfile.name,
             urlFoto=uploaded_file_url,
             judul=judul,
             konten=konten,
             indikator=indikator
         )
-        urlFotoProgram.save()
+        artikel.save()
         print("simpan program")
-    return redirect('wakafadmin:pageProgram')
+    return redirect('wakafadmin:pageArtikel')
 
 @login_required
-def deleteArtikel(request, program_id):
+@csrf_exempt
+def addArtikelRekomendasi(request):
+    if request.method == 'POST':
+        artikel_id = request.POST['artikel']
+        artikel = ArtikelRekomendasi(
+            parent=Artikel.objects.get(pk=artikel_id)
+        )
+        artikel.save()
+    return redirect('wakafadmin:pageArtikel')
+
+
+@login_required
+def deleteArtikel(request, artikel_id):
     fs = FileSystemStorage()
-    program = UnitBisnis.objects.get(pk=program_id)
-    fs.delete(program.namaFile)
-    program.delete()
-    return redirect('wakafadmin:pageProgram')
+    artikel = Artikel.objects.get(pk=artikel_id)
+    fs.delete(artikel.namaFile)
+    artikel.delete()
+    return redirect('wakafadmin:pageArtikel')
+
+@login_required
+def deleteArtikelRekomendasi(request, artikel_id):
+    artikel = ArtikelRekomendasi.objects.get(pk=artikel_id)
+    artikel.delete()
+    return redirect('wakafadmin:pageArtikel')
+
+@login_required
+def pageKegiatanVolunteer(request):
+    response['listKegiatan'] = KegiatanVolunteer.objects.all()
+    return render(request,'pageKegiatanVolunteer.html',response)
+
+@login_required
+@csrf_exempt
+def addKegiatanVolunteer(request):
+    fs = FileSystemStorage()
+    if request.method == 'POST' and request.FILES['fotoKegiatan']:
+        myfile = request.FILES['fotoKegiatan']
+        judul = request.POST['nama']
+        konten = request.POST['konten']
+        indikator = request.POST['indikator']
+        # print(myfile.name, type(myfile.name))
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+
+        kegiatan = KegiatanVolunteer(
+            namaFile=myfile.name,
+            urlFoto=uploaded_file_url,
+            judul=judul,
+            konten=konten,
+            indikator=indikator
+        )
+        kegiatan.save()
+        print("simpan program")
+    return redirect('wakafadmin:pageKegiatanVolunteer')
+
+@login_required
+def deleteKegiatanVolunteer(request, kegiatan_id):
+    fs = FileSystemStorage()
+    kegiatan = KegiatanVolunteer.objects.get(pk=kegiatan_id)
+    fs.delete(kegiatan.namaFile)
+    kegiatan.delete()
+    return redirect('wakafadmin:pageKegiatanVolunteer')
 

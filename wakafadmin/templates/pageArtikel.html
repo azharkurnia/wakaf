@@ -9,7 +9,7 @@
 
         <div class="card-body">
 
-            <form id="formProgram" name="form" method="POST" action="{% url 'wakafadmin:addArtikel' %}" enctype="multipart/form-data">
+            <form id="formArtikel" name="form" method="POST" action="{% url 'wakafadmin:addArtikel' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row m-2">
                     <div class="col-2">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-2">
-                        Deskripsi
+                        Konten Artikel
                     </div>
                     <div class="col">
                         <input required type="text" class="form-control" name="konten" placeholder="Tulis deskripsi singkat disini">
@@ -30,10 +30,19 @@
 
                 <div class="row m-2">
                     <div class="col-2">
-                        Indikator
+                        Konten Singkat (Preview)
                     </div>
                     <div class="col">
-                        <input required type="text" class="form-control" name="indikator" placeholder="Tulis detail indikator">
+                        <input required type="text" class="form-control" name="preview" placeholder="Maksimal 400 karakter" maxlength="400">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-2">
+                        Tag
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="tag" placeholder="Contoh: Wirausaha">
                     </div>
                 </div>
 
@@ -42,7 +51,7 @@
                         Foto
                     </div>
                     <div class="col">
-                        <input required type="file" name="fotoProgram">
+                        <input required type="file" name="fotoArtikel">
                     </div>
                 </div>
                 <button class="btn btn-info" type="submit">Submit</button>
@@ -50,13 +59,34 @@
             </form>
         </div>
     </div>
+    <div class="card mb-3 mt-2">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Tambah Artikel Rekomendasi
+        </div>
 
+        <div class="card-body">
+            <form id="formTesti" name="form" method="POST" action="{% url 'wakafadmin:addArtikelRekomendasi' %}">
+                {% csrf_token %}
+                <div class="row mx-2">
+                    <div class="form-group">
+                        <label for="testimonial">Pilih Judul artikel untuk dijadikan rekomendasi: *</label>
+                        <select required class="form-control" name="artikel" id="artikel">
+                            <option value="">Klik untuk memilih</option>
+                            {% for artikel in listArtikel %}
+                            <option value="{{ artikel.pk }}">{{ artikel.judul }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-info" type="submit">Submit</button>
 
+            </form>
 
-
+        </div>
+    </div>
     <div class="card mb-3 mt-5">
         <div class="card-header">
-            <i class="fa fa-table"></i> Daftar Program
+            <i class="fa fa-table"></i> Daftar Artikel
         </div>
 
 
@@ -68,30 +98,84 @@
                     <thead>
                     <tr>
                         <th>Foto</th>
-                        <th>Nama Program</th>
+                        <th>Judul Artikel</th>
                         <th>Konten</th>
-                        <th>Detail Indikator</th>
+                        <th>Konten Singkat</th>
+                        <th>Tag</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>Foto</th>
-                        <th>Nama Program</th>
+                        <th>Judul Artikel</th>
                         <th>Konten</th>
-                        <th>Detail Indikator</th>
+                        <th>Konten Singkat</th>
+                        <th>Tag</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
                     <tbody class="table-cantik">
 
-                    {% for program in listProgram %}
+                    {% for artikel in listArtikel %}
                         <tr>
-                            <td><img src="{{ program.urlFoto }}" style="width: 100%"> </td>
-                            <td><p>{{ program.judul }}</p></td>
-                            <td><p>{{ program.konten }}</p></td>
-                            <td><p>{{ program.indikator }}</p></td>
-                            <td><button class="btn btn-danger" onclick="deleteProgram({{ program.pk }})">HAPUS!</button></td>
+                            <td><img src="{{ artikel.urlFoto }}" style="width: 100%"> </td>
+                            <td><p>{{ artikel.judul }}</p></td>
+                            <td><p>{{ artikel.konten }}</p></td>
+                            <td><p>{{ artikel.konten_singkat }}</p></td>
+                            <td><p>{{ artikel.tag }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteArtikel({{artikel.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Daftar Artikel Rekomendasi
+        </div>
+
+
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-cantik" id="paymentTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Judul Artikel</th>
+                        <th>Konten</th>
+                        <th>Konten Singkat</th>
+                        <th>Tag</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Judul Artikel</th>
+                        <th>Konten</th>
+                        <th>Konten Singkat</th>
+                        <th>Tag</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                    <tbody class="table-cantik">
+
+                    {% for artikel in listArtikelRekomendasi %}
+                        <tr>
+                            <td><img src="{{ artikel.parent.urlFoto }}" style="width: 100%"> </td>
+                            <td><p>{{ artikel.parent.judul }}</p></td>
+                            <td><p>{{ artikel.parent.konten }}</p></td>
+                            <td><p>{{ artikel.parent.konten_singkat }}</p></td>
+                            <td><p>{{ artikel.parent.tag }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteArtikelRekomendasi({{artikel.pk }})">HAPUS!</button></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -129,18 +213,30 @@
             return false;
         }
 
-        var deleteProgram = function(id){
+        var deleteArtikel = function(id){
             console.log(id);
             $.ajax({
                 method: "GET",
-                url: "/wakaf_admin/deleteProgram/"+id+"/",
+                url: "/wakaf_admin/deleteArtikel/"+id+"/",
                 success: function() {
-                    alert("berhasil hapus program");
+                    alert("berhasil hapus Artikel");
                     location.reload();
                 }
             });
         };
 
+
+        var deleteArtikelRekomendasi = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteArtikelRekomendasi/"+id+"/",
+                success: function() {
+                    alert("berhasil hapus Artikel Rekomendasi");
+                    location.reload();
+                }
+            });
+        };
     </script>
 
     <style>

@@ -30,10 +30,13 @@ def aboutUs(request):
     return render(request, "aboutUs.html")
 
 def volunteer(request):
-    return render(request, "volunteer.html")
+    response['listKegiatanVolunteer'] = KegiatanVolunteer.objects.all()
+    return render(request, "volunteer.html",response)
 
 def artikel(request):
-    return render(request, "artikel.html")
+    response['listArtikel'] = Artikel.objects.all()
+    response['listArtikelRekomendasi'] = ArtikelRekomendasi.objects.all()
+    return render(request, "artikel.html", response)
 
 
 @csrf_exempt
@@ -64,6 +67,33 @@ def add_donatur(request):
         # TODO: Redirect ke page Thank you
     return HttpResponseRedirect(reverse('wakafapp:home'))
 
+@csrf_exempt
+def add_volunteer(request):
+    if (request.method == 'POST'):
+        kegiatan = request.POST['kegiatan']
+        namadepan = request.POST['namadepan']
+        namabelakang = request.POST['namabelakang']
+        email = request.POST['email']
+        noHp = request.POST['nohandphone']
+        kelamin = request.POST['kelamin']
+        alamat = request.POST['alamat']
+        birth = request.POST['birthdate']
+        domisili = request.POST['domisili']
+
+        volunteer = Volunteer(
+            kegiatan=kegiatan,
+            nama=namadepan+' '+namabelakang,
+            email=email,
+            noHp=noHp,
+            kelamin=kelamin,
+            alamat=alamat,
+            birth=birth,
+            domisili=domisili
+        )
+        volunteer.save()
+        print(Volunteer.objects.all().count())
+        # TODO: Redirect ke page Thank you
+    return HttpResponseRedirect(reverse('wakafapp:volunteer'))
 
 def coba(request):
     a = Parent.objects.all().delete()

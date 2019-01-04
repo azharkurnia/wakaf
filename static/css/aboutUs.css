@@ -24,6 +24,11 @@
     	height: 430px !important;
     	margin-right: 5vw !important;
     }
+    .card-info-artikel {
+    	width: 30vw !important;
+    	height: 635px !important;
+    	margin-right: 5vw !important;
+    }
     .card-body-info {
     	padding: 0 !important;
     }
@@ -33,6 +38,15 @@
     	padding-right: 20px !important;
     }
     .subheading2-info {
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    	font-size: 15px !important;
+    }
+	.subheading1-info-artikel {
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    }
+    .subheading2-info-artikel {
     	padding-left: 20px !important;
     	padding-right: 20px !important;
     	font-size: 15px !important;
@@ -63,6 +77,13 @@
     	margin-right: 5vw !important;
     	margin-left: 5vw !important;
     }
+
+    .card-info-artikel {
+    	width: 80vw !important;
+    	height: 600px !important;
+    	margin-right: 5vw !important;
+    	margin-left: 5vw !important;
+    }
     .card-body-info {
     	padding: 0 !important;
     }
@@ -72,6 +93,16 @@
     	padding-right: 20px !important;
     }
     .subheading2-info {
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    	font-size: 15px !important;
+    }
+
+	.subheading1-info-artikel {
+    	padding-left: 20px !important;
+    	padding-right: 20px !important;
+    }
+    .subheading2-info-artikel {
     	padding-left: 20px !important;
     	padding-right: 20px !important;
     	font-size: 15px !important;
