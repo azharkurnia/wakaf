@@ -4,133 +4,75 @@
 {% block content %}
     <title>Assets</title>
     <body>
-
     <div class="container-fluid py-3" style="background-color: 	#FFFFFF">
         <p class="px-3 mb-1 custom-bold"><b>PROGRAM</b></p>
         <h4 class="px-3 mb-4 custom-bold"><b>Unit Bisnis Kami</b></h4>
 
-        <div class="card-deck py-2 px-3" id="cara-kerja">
+        <div class="card-deck py-2 px-3 cara-kerja">
+            {% for program in listProgram %}
+                <div class="card">
+                    <img class="card-img-top" src="{{ program.urlFoto }}">
+                    <div class="card-body">
 
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets1.png' %}">
-                <div class="card-body">
+                        <div class="custom-bold"><h4><b>{{ program.judul }}</b></h4></div>
+                        <p class="card-text custom-book">{{ program.konten }}</p>
+                    </div>
 
-                    <div class="custom-bold"><h4><b>MHDC Pesona Square</b>    </h4></div>
-                    <p class="card-text custom-book">MHDC merupakan one stop clinic yang menghadirkan layanan kesehatan umum, tumbuh kembang anak, estetika dan akupuntur, serta gigi spesialistik yang berkualitas di Jakarta. </p>
+                    <div class="card-footer" data-toggle="modal" data-target="#myModal{{ program.pk }}">
+                        <div class="text-center custom-bold"><a href="#card-footer"><b>Lihat Indikator</b></a></div>
+                    </div>
                 </div>
+                {% if forloop.counter|divisibleby:3 %}
+                    </div>
+                    <div class="card-deck mt-3 py-2 px-3 cara-kerja">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ program.urlFoto }}">
+                        <div class="card-body">
 
-                <div class="card-footer" data-toggle="modal" data-target="#myModal">
-                    <div class="text-center custom-bold"><a href="#card-footer"><b>Lihat Indikator</b></a></div>
+                            <div class="custom-bold"><h4><b>{{ program.judul }}</b></h4></div>
+                            <p class="card-text custom-book">{{ program.konten }}</p>
+                        </div>
+
+                        <div class="card-footer" data-toggle="modal" data-target="#myModal{{ program.pk }}">
+                            <div class="text-center custom-bold"><a href="#card-footer"><b>Lihat Indikator</b></a></div>
+                        </div>
+
+                    </div>
+
+                {% endif %}
+                <div class="modal fade" id="myModal{{ program.pk }}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <img src="{{ program.urlFoto }}" style="width:100%;">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="main">
+                                    <h5 class="indikator">{{ program.judul }} - Indikator</h5>
+
+                                    <p>
+                                        {{ program.indikator }}
+                                    </p>
+                                </div>
+                                <a href="/" class="btn btn-dark m-0" id="button-pesan" style="background-color:#A6CD9D;width: 100%;">
+                                    <strong>
+                                        <i class="fa fa-whatsapp mr-2"style="font-size: 20px"></i>
+                                        <p class="m-0" style="display: inline-block">Tinggalkan Pesan</p>
+                                    </strong>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
-
+            {% endfor %}
             </div>
-
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets2.png' %}">
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Wiraswasta</p></li>
-
-                    <div class="custom-bold"><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets3.png' %}">
-
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Bisnis</p></li>
-
-                    <div class="custom-bold"><h4><b>Business Re-engineering</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="card-deck py-2 px-3" id="cara-kerja">
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets1.png' %}">
-                <div class="card-body">
-
-                    <div class="custom-bold"><h4><b>MHDC Pesona Square</b>    </h4></div>
-                    <p class="card-text custom-book">MHDC merupakan one stop clinic yang menghadirkan layanan kesehatan umum, tumbuh kembang anak, estetika dan akupuntur, serta gigi spesialistik yang berkualitas di Jakarta. </p>
-                </div>
-
-                <div class="card-footer" data-toggle="modal" data-target="#myModal">
-                    <div class="text-center custom-bold"><a href="#card-footer"><b>Lihat Indikator</b></a></div>
-                </div>
-
-            </div>
-
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets2.png' %}">
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Wiraswasta</p></li>
-
-                    <div class="custom-bold"><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets3.png' %}">
-
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Bisnis</p></li>
-
-                    <div class="custom-bold"><h4><b>Business Re-engineering</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="card-deck py-2 px-3" id="cara-kerja">
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets1.png' %}">
-                <div class="card-body">
-
-                    <div class="custom-bold"><h4><b>MHDC Pesona Square</b>    </h4></div>
-                    <p class="card-text custom-book">MHDC merupakan one stop clinic yang menghadirkan layanan kesehatan umum, tumbuh kembang anak, estetika dan akupuntur, serta gigi spesialistik yang berkualitas di Jakarta. </p>
-                </div>
-
-                <div class="card-footer" data-toggle="modal" data-target="#myModal">
-                    <div class="text-center custom-bold"><a href="#card-footer"><b>Lihat Indikator</b></a></div>
-                </div>
-
-            </div>
-
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets2.png' %}">
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Wiraswasta</p></li>
-
-                    <div class="custom-bold"><h4><b>Pengembangan Ide UKM Depok</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" src="{% static '/img/assets3.png' %}">
-
-                <div class="card-body">
-                    <li class="label"><p class="tags custom-book">Bisnis</p></li>
-
-                    <div class="custom-bold"><h4><b>Business Re-engineering</b>    </h4></div>
-                    <p class="card-text custom-book">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a cursus diam, vel ultricies enim. Nunc suscipit eu est id malesuada. </p>
-                </div>
-
-            </div>
-        </div>
     </div>
     {#    <div class="container-fluid p-lg-5 bg-white">#}
     {#        <div class="row px-3 px-lg-5" id="banner">#}
@@ -145,48 +87,7 @@
     {#            </div>#}
     {#        </div>#}
     {#    </div>#}
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <img src="{% static '/img/assets1.png' %}" style="width:100%;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="main">
-                        <h5 class="indikator">MHDC Pesona Square - Indikator</h5>
-
-                        <ol>
-                            <li>Azhar Kurnia</li>
-                            <li>Fajrin Maulana Kingwijati</li>
-                            <li>Aufar Rizki</li>
-                            <li>Pengeluaran Alat</li>
-                            <li>Galang Fauzan Galang Fauzan</li>
-                            <li>Azhar Kurnia Azhar Kurnia</li>
-                            <li>Fajrin Maulana Kingwijati</li>
-                            <li>Aufar Rizki Aufar Rizki Aufar</li>
-                            <li>Pengeluaran Alat</li>
-                            <li>Galang Fauzan</li>
-                            <li>Pembayaran per Pasien</li>
-
-                        </ol>
-                    </div>
-                    <a href="/" class="btn btn-dark m-0" id="button-pesan" style="background-color:#A6CD9D;width: 100%;">
-                        <strong>
-                            <i class="fa fa-whatsapp mr-2"style="font-size: 20px"></i>
-                            <p class="m-0" style="display: inline-block">Tinggalkan Pesan</p>
-                        </strong>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
 
 
 
@@ -242,23 +143,6 @@
             font-weight: 900;
         }
 
-
-
-        .custom-book {
-            font-family: CircularStd-Book !important;
-        }
-
-        .custom-bold {
-            font-family: CircularStd-Bold !important;
-        }
-
-        .custom-black {
-            font-family: CircularStd-Black !important;
-        }
-
-        .custom-medium {
-            font-family: CircularStd-Medium !important;
-        }
     </style>
 
 {% endblock %}

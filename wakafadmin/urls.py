@@ -23,6 +23,5 @@ urlpatterns = [
     url(r'^deleteTesti3/(?P<testi_id>[0-9]+)/$', deleteTesti3, name='deleteTesti3'),
     url(r'^pageProgram/', pageProgram, name='pageProgram'),
     url(r'^addProgram/', addProgram, name='addProgram'),
-    url(r'^addIndikator/(?P<program_id>[0-9]+)/$', addIndikator, name='addIndikator'),
-    url(r'^deleteProgram/(?P<program_id>[0-9]+)/$', deleteProgram, name='deleteProgram'),
-    url(r'^deleteIndikator/(?P<indikator_id>[0-9]+)/$', deleteIndikator, name='deleteIndikator'),]
+    url(r'^deleteProgram/(?P<program_id>[0-9]+)/$', deleteProgram, name='deleteProgram')
+]

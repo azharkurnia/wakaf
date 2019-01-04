@@ -5,7 +5,7 @@ $(document).ready(function(){
 });
 
 $('.owl1').owlCarousel({
-    autoplay:true,
+    autoplay:false,
     loop:true,
     nav:true,
     autoWidth:true,

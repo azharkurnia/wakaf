@@ -57,11 +57,7 @@ class UnitBisnis(models.Model):
     urlFoto = models.URLField()
     judul = models.CharField(max_length=140, blank=False)
     konten = models.TextField(blank=False)
-
-
-class IndikatorUnitBisnis(models.Model):
-    parent = models.ForeignKey(UnitBisnis)
-    indikator = models.CharField(max_length=140, blank=False)
+    indikator = models.TextField()
 
 
 class ArtikelRekomendasi(models.Model):

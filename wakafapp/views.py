@@ -23,10 +23,7 @@ def home(request):
 
 
 def program(request):
-    program = UnitBisnis.objects.all()
-    indikator = IndikatorUnitBisnis.objects.all()
-    response['listIndikator'] = indikator
-    response['listProgram'] = program
+    response['listProgram'] = UnitBisnis.objects.all()
     return render(request, "program.html", response)
 
 def aboutUs(request):
@@ -35,8 +32,8 @@ def aboutUs(request):
 def volunteer(request):
     return render(request, "volunteer.html")
 
-def article(request):
-    return render(request, "article.html")
+def artikel(request):
+    return render(request, "artikel.html")
 
 
 @csrf_exempt
