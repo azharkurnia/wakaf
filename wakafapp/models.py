@@ -57,7 +57,7 @@ class UnitBisnis(models.Model):
     urlFoto = models.URLField()
     judul = models.CharField(max_length=140, blank=False)
     konten = models.TextField(blank=False)
-    indikator = models.TextField()
+    indikator = models.TextField(default="null")
 
 
 class ArtikelRekomendasi(models.Model):
