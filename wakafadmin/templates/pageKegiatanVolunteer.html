@@ -1,0 +1,164 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+    <div class="card mb-3 mt-2">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Form Tambah Kegiatan Volunteer
+        </div>
+
+        <div class="card-body">
+
+            <form id="formArtikel" name="form" method="POST" action="{% url 'wakafadmin:addKegiatanVolunteer' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row m-2">
+                    <div class="col-2">
+                        Judul Kegiatan
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="nama" placeholder="Contoh: MHDC Pesona Square">
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-2">
+                        Konten Kegiatan
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="konten" placeholder="Tulis deskripsi singkat disini">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-2">
+                        Konten Singkat (Preview)
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="preview" placeholder="Maksimal 400 karakter" maxlength="400">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-2">
+                        Tag
+                    </div>
+                    <div class="col">
+                        <input required type="text" class="form-control" name="tag" placeholder="Contoh: Wirausaha">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-2">
+                        Foto
+                    </div>
+                    <div class="col">
+                        <input required type="file" name="fotoKegiatan">
+                    </div>
+                </div>
+                <button class="btn btn-info" type="submit">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Daftar Kegiatan Volunteer
+        </div>
+
+
+        <div class="card-body">
+            <div><button id="refresh" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button></div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-cantik" id="carouselTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Judul Kegiatan</th>
+                        <th>Konten</th>
+                        <th>Konten Singkat</th>
+                        <th>Tag</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Judul Kegiatan</th>
+                        <th>Konten</th>
+                        <th>Konten Singkat</th>
+                        <th>Tag</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                    <tbody class="table-cantik">
+
+                    {% for kegiatan in listKegiatan %}
+                        <tr>
+                            <td><img src="{{ kegiatan.urlFoto }}" style="width: 100%"> </td>
+                            <td><p>{{ kegiatan.judul }}</p></td>
+                            <td><p>{{ kegiatan.konten }}</p></td>
+                            <td><p>{{ kegiatan.konten_singkat }}</p></td>
+                            <td><p>{{ kegiatan.tag }}</p></td>
+                            <td><button class="btn btn-danger" onclick="deleteKegiatanVolunteer({{kegiatan.pk }})">HAPUS!</button></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        {#$( "#formIndikator" ).submit(function( e ) {#}
+        {#    e.preventDefault();#}
+        {#    var program_id = $('#program').val();#}
+        {#    $.ajax({#}
+        {#        type:'POST',#}
+        {#        url:"/wakaf_admin/addIndikator/"+program_id+"/",#}
+        {#        data: {#}
+        {#            program_id:program_id,#}
+        {#            indikator:$('#indikator').val(),#}
+        {#            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()#}
+        {#        },#}
+        {#        success:function () {#}
+        {#            alert("BERHASIL");#}
+        {#            location.reload();#}
+        {#        }#}
+        {#    });#}
+        {#  });#}
+
+        function refreshTable() {
+            $("#tableLayanan").load(" #tableLayanan > *");
+            return false;
+        }
+
+        var deleteKegiatanVolunteer = function(id){
+            console.log(id);
+            $.ajax({
+                method: "GET",
+                url: "/wakaf_admin/deleteKegiatanVolunteer/"+id+"/",
+                success: function() {
+                    alert("berhasil hapus Kegiatan");
+                    location.reload();
+                }
+            });
+        };
+
+    </script>
+
+    <style>
+        img {
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+{% endblock %}
