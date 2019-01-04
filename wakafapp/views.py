@@ -23,7 +23,11 @@ def home(request):
 
 
 def program(request):
-    return render(request, "program.html")
+    program = UnitBisnis.objects.all()
+    indikator = IndikatorUnitBisnis.objects.all()
+    response['listIndikator'] = indikator
+    response['listProgram'] = program
+    return render(request, "program.html", response)
 
 def aboutUs(request):
     return render(request, "aboutUs.html")
