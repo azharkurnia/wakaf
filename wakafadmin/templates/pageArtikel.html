@@ -42,7 +42,7 @@
                         Tag
                     </div>
                     <div class="col">
-                        <input required type="text" class="form-control" name="tag" placeholder="Contoh: Wirausaha">
+                        <input required type="text" class="form-control" name="tag" maxlength="20" placeholder="Contoh: Wirausaha">
                     </div>
                 </div>
 
@@ -122,8 +122,8 @@
                             <td><img src="{{ artikel.urlFoto }}" style="width: 100%"> </td>
                             <td><p>{{ artikel.judul }}</p></td>
                             <td><p>{{ artikel.konten }}</p></td>
-                            <td><p>{{ artikel.konten_singkat }}</p></td>
-                            <td><p>{{ artikel.tag }}</p></td>
+                            <td><p>{{ artikel.konten_short }}</p></td>
+                            <td><p>{{ artikel.tags }}</p></td>
                             <td><button class="btn btn-danger" onclick="deleteArtikel({{artikel.pk }})">HAPUS!</button></td>
                         </tr>
                     {% endfor %}
@@ -173,8 +173,8 @@
                             <td><img src="{{ artikel.parent.urlFoto }}" style="width: 100%"> </td>
                             <td><p>{{ artikel.parent.judul }}</p></td>
                             <td><p>{{ artikel.parent.konten }}</p></td>
-                            <td><p>{{ artikel.parent.konten_singkat }}</p></td>
-                            <td><p>{{ artikel.parent.tag }}</p></td>
+                            <td><p>{{ artikel.parent.konten_short }}</p></td>
+                            <td><p>{{ artikel.parent.tags }}</p></td>
                             <td><button class="btn btn-danger" onclick="deleteArtikelRekomendasi({{artikel.pk }})">HAPUS!</button></td>
                         </tr>
                     {% endfor %}

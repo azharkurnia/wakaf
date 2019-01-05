@@ -315,7 +315,9 @@ def addArtikel(request):
         myfile = request.FILES['fotoArtikel']
         judul = request.POST['nama']
         konten = request.POST['konten']
-        indikator = request.POST['indikator']
+        preview = request.POST['preview']
+        tag = request.POST['tag']
+
         # print(myfile.name, type(myfile.name))
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
@@ -325,7 +327,9 @@ def addArtikel(request):
             urlFoto=uploaded_file_url,
             judul=judul,
             konten=konten,
-            indikator=indikator
+            tags=tag,
+            konten_short=preview,
+
         )
         artikel.save()
         print("simpan program")
@@ -370,7 +374,8 @@ def addKegiatanVolunteer(request):
         myfile = request.FILES['fotoKegiatan']
         judul = request.POST['nama']
         konten = request.POST['konten']
-        indikator = request.POST['indikator']
+        preview = request.POST['preview']
+        tag = request.POST['tag']
         # print(myfile.name, type(myfile.name))
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
@@ -380,7 +385,8 @@ def addKegiatanVolunteer(request):
             urlFoto=uploaded_file_url,
             judul=judul,
             konten=konten,
-            indikator=indikator
+            tags=tag,
+            konten_short=preview,
         )
         kegiatan.save()
         print("simpan program")

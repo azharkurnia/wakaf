@@ -98,8 +98,8 @@
                             <td><img src="{{ kegiatan.urlFoto }}" style="width: 100%"> </td>
                             <td><p>{{ kegiatan.judul }}</p></td>
                             <td><p>{{ kegiatan.konten }}</p></td>
-                            <td><p>{{ kegiatan.konten_singkat }}</p></td>
-                            <td><p>{{ kegiatan.tag }}</p></td>
+                            <td><p>{{ kegiatan.konten_short }}</p></td>
+                            <td><p>{{ kegiatan.tags }}</p></td>
                             <td><button class="btn btn-danger" onclick="deleteKegiatanVolunteer({{kegiatan.pk }})">HAPUS!</button></td>
                         </tr>
                     {% endfor %}
