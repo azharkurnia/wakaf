@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -34,8 +35,30 @@ def volunteer(request):
     return render(request, "volunteer.html",response)
 
 def artikel(request):
-    response['listArtikel'] = Artikel.objects.all()
+    listArtikel = Artikel.objects.all()
     response['listArtikelRekomendasi'] = ArtikelRekomendasi.objects.all()
+    page = request.GET.get('page',1)
+    paginator = Paginator(listArtikel, 2)
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+    response['listArtikel'] = articles
+
+    # Get the index of the current page
+    index = articles.number - 1  # edited to something easier without index
+    # This value is maximum index of your pages, so the last page - 1
+    max_index = len(paginator.page_range)
+    # You want a range of 7, so lets calculate where to slice the list
+    start_index = index - 3 if index >= 3 else 0
+    end_index = index + 3 if index <= max_index - 3 else max_index
+    # Get our new page range. In the latest versions of Django page_range returns
+    # an iterator. Thus pass it to list, to make our slice possible again.
+    page_range = list(paginator.page_range)[start_index:end_index]
+    print(page_range)
+    response['page_range'] = page_range
     return render(request, "artikel.html", response)
 
 
