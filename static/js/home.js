@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $(".owl1").owlCarousel();
     $(".owl2").owlCarousel();
-
 });
 
 $('.owl1').owlCarousel({

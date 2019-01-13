@@ -4,8 +4,10 @@
 {% block content %}
 
     <body>
-    <div class="container-fluid bg-whi p-0">
-        <img class="img-fluid" src="{% static 'img/hero.png' %}">
+    <div class="container-fluid bg-whi p-0" id="hero">
+        <img class="img-fluid" src="{% static 'img/hero1.png' %}">
+        <img class="img-fluid" src="{% static 'img/hero2.png' %}">
+        <img class="img-fluid" src="{% static 'img/hero3.png' %}">
     </div>
 
     <div class="container bg-white py-3">
@@ -112,33 +114,33 @@
 
         <div class="card-deck py-2 px-3" id="testimoni">
             {% for testi in testi1 %}
-            <div class="card">
-                <div class="card-body">
-                    <img class="mx-auto d-block img-card" src="{{ testi.urlFoto }}">
-                    <p class="subheading2 card-text text-center">{{ testi.konten }}</p>
-                    <p class="subheading2 card-text text-center">{{ testi.nama }}<br> {{ testi.jabatan }}</p>
+                <div class="card">
+                    <div class="card-body">
+                        <img class="mx-auto d-block img-card" src="{{ testi.urlFoto }}">
+                        <p class="subheading2 card-text text-center">{{ testi.konten }}</p>
+                        <p class="subheading2 card-text text-center">{{ testi.nama }}<br> {{ testi.jabatan }}</p>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
 
             {% for testi in testi2 %}
-            <div class="card">
-                <div class="card-body">
-                    <img class="mx-auto d-block img-card" src="{{ testi.urlFoto }}">
-                    <p class="subheading2 card-text text-center">{{ testi.konten }}</p>
-                    <p class="subheading2 card-text text-center">{{ testi.nama }}<br> {{ testi.jabatan }}</p>
+                <div class="card">
+                    <div class="card-body">
+                        <img class="mx-auto d-block img-card" src="{{ testi.urlFoto }}">
+                        <p class="subheading2 card-text text-center">{{ testi.konten }}</p>
+                        <p class="subheading2 card-text text-center">{{ testi.nama }}<br> {{ testi.jabatan }}</p>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
 
             {% for testi in testi3 %}
-            <div class="card">
-                <div class="card-body">
-                    <img class="mx-auto d-block img-card" src="{{ testi.urlFoto }}">
-                    <p class="subheading2 card-text text-center">{{ testi.konten }}</p>
-                    <p class="subheading2 card-text text-center">{{ testi.nama }}<br> {{ testi.jabatan }}</p>
+                <div class="card">
+                    <div class="card-body">
+                        <img class="mx-auto d-block img-card" src="{{ testi.urlFoto }}">
+                        <p class="subheading2 card-text text-center">{{ testi.konten }}</p>
+                        <p class="subheading2 card-text text-center">{{ testi.nama }}<br> {{ testi.jabatan }}</p>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
 
         </div>
@@ -236,6 +238,8 @@
     </div>
 
     <script>
+
+
         $(document).ready(function() {
             $("#myCarousel").on("slide.bs.carousel", function(e) {
                 var $e = $(e.relatedTarget);
@@ -262,6 +266,19 @@
         });
 
         $(document).ready(function() {
+
+            $('#hero').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: false,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                arrows:false,
+                cssEase: 'linear'
+            });
             // Transition effect for navbar
             $('#form-button-donasi').submit(function(e) {
                 e.preventDefault();
