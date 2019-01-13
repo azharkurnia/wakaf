@@ -91,6 +91,9 @@ class Volunteer(models.Model):
     domisili = models.CharField(max_length=140, blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
+class DonasiCMS(models.Model):
+    title = models.CharField(max_length=140, blank=False, default='null')
+    konten = models.TextField(blank=False, default='null')
 
 class Parent(models.Model):
     nama = models.TextField(blank=False)

@@ -20,6 +20,7 @@ def home(request):
     response['testi1'] = testi1
     response['testi2'] = testi2
     response['testi3'] = testi3
+    response['cmsDonasi'] = DonasiCMS.objects.all()
     return render(request, 'home.html', response)
 
 
@@ -114,7 +115,8 @@ def add_donatur(request):
     return HttpResponseRedirect(reverse('wakafapp:home'))
 
 @csrf_exempt
-def add_volunteer(request):
+def add_relawan(request):
+    print('masuk add volu')
     if (request.method == 'POST'):
         kegiatan = request.POST['kegiatan']
         namadepan = request.POST['namadepan']
@@ -137,6 +139,7 @@ def add_volunteer(request):
             domisili=domisili
         )
         volunteer.save()
+        print('masuk saved')
         print(Volunteer.objects.all().count())
         # TODO: Redirect ke page Thank you
     return HttpResponseRedirect(reverse('wakafapp:volunteer'))

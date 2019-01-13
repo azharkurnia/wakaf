@@ -1,4 +1,3 @@
-import io
 from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.shortcuts import render, redirect
@@ -24,6 +23,7 @@ def tables(request):
     donaturList = Donatur.objects.all()
     response['donaturList'] = donaturList
     response['volunteerList'] = Volunteer.objects.all()
+    print("total volu ",str(Volunteer.objects.all().count()))
     return render(request, 'dashboard.html', response)
 
 
@@ -62,11 +62,56 @@ def uploadFotoDonasi(request):
             print("simpan foto donasi")
     return redirect('wakafadmin:pageFotoDonasi')
 
+@login_required
+def deleteFotoDonasi(request, foto_id):
+    fs = FileSystemStorage()
+    foto = FotoDonasi.objects.get(pk=foto_id)
+    fs.delete(foto.namaFile)
+    foto.delete()
+    return redirect('wakafadmin:pageFotoDonasi')
+
+@login_required
+def deleteDonasiCMS(request, cms_id):
+    cms = DonasiCMS.objects.get(pk=cms_id)
+    cms.delete()
+    return redirect('wakafadmin:pageFotoDonasi')
+
+
+@login_required
+@csrf_exempt
+def uploadDonasiCMS(request):
+    if (DonasiCMS.objects.count() > 0):
+        DonasiCMS.objects.all().delete()
+        print("hapus")
+
+        if(request.method == 'POST'):
+            judul = request.POST['judul']
+            konten = request.POST['konten']
+
+            deskripsi = DonasiCMS(
+                title=judul,
+                konten=konten
+            )
+            deskripsi.save()
+            print("simpan")
+    else:
+        if(request.method == 'POST'):
+            judul = request.POST['judul']
+            konten = request.POST['konten']
+
+            deskripsi = DonasiCMS(
+                title=judul,
+                konten=konten
+            )
+            deskripsi.save()
+            print("simpan")
+    return redirect('wakafadmin:pageFotoDonasi')
 
 @login_required
 def pageFotoDonasi(request):
     fotoDonasi = FotoDonasi.objects.all()
     response['fotoDonasi'] = fotoDonasi
+    response['cmsDonasi'] = DonasiCMS.objects.all()
     return render(request, 'fotoDonasi.html', response)
 
 

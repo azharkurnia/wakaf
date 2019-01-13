@@ -9,7 +9,8 @@
         <p class="px-3 mb-1 custom-bold"><b>Volunteer</b></p>
         <h4 class="px-3 mb-4 custom-bold"><b>Bergabung menjadi Volunteer acara kami</b></h4>
         <div class="container contact-form py-3" style="background-color: lightgrey; padding-left: 20%;padding-right: 20%">
-            <form method="post">
+
+            <form id="form-volunteer" name="form-volunteer" method="POST" action="{% url 'wakafapp:add_relawan' %}">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-12">
