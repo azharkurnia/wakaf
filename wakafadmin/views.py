@@ -23,6 +23,7 @@ def tables(request):
     donaturList = Donatur.objects.all()
     response['donaturList'] = donaturList
     response['volunteerList'] = Volunteer.objects.all()
+    response['donaturLast'] = Donatur.objects.last()
     print("total volu ",str(Volunteer.objects.all().count()))
     return render(request, 'dashboard.html', response)
 
