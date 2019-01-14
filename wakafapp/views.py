@@ -21,6 +21,7 @@ def home(request):
     response['testi2'] = testi2
     response['testi3'] = testi3
     response['cmsDonasi'] = DonasiCMS.objects.all()
+
     return render(request, 'home.html', response)
 
 
@@ -88,6 +89,7 @@ def artikel(request):
 
 @csrf_exempt
 def add_donatur(request):
+
     if (request.method == 'POST'):
         nominal = request.POST['nominal']
         namadepan = request.POST['namadepan']

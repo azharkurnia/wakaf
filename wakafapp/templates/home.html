@@ -284,7 +284,14 @@
             // Transition effect for navbar
             $('#form-button-donasi').submit(function(e) {
                 e.preventDefault();
+
                 var nominal = $('#nominal').val();
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+                for (var i = 0; i < 5; i++)
+                    text += possible.charAt(Math.floor(Math.random() * possible.length))
+
                 $('#modalDonasi').modal('show');
                 $('#nominalFix').val(nominal);
 

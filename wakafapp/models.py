@@ -20,6 +20,8 @@ class Donatur(models.Model):
     birth = models.CharField(max_length=140, blank=False)
     alamat = models.CharField(max_length=300, blank=False)
     domisili = models.CharField(max_length=140, blank=False)
+    id_transaksi = models.TextField(blank=False, default='null')
+    kode_transfer = models.CharField(max_length=10, blank=False, default='null')
     created_on = models.DateTimeField(auto_now_add=True)
 
 
