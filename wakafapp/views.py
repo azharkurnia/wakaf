@@ -93,7 +93,7 @@ def add_donatur(request):
         last_id = int(Donatur.objects.last().pk) + 1
     except:
         last_id = 1
-    id_transaksi = '#'.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6))
+    id_transaksi = '#'+''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6))
 
     if (request.method == 'POST'):
         nominal = request.POST['nominal']
@@ -106,7 +106,7 @@ def add_donatur(request):
         birth = request.POST['birthdate']
         domisili = request.POST['domisili']
         id_transaksi = id_transaksi+'-'+last_id
-        kode_transfer = random.randint(0,100)
+        kode_transfer = random.randint(1,100)
         donatur = Donatur(
             nominal=nominal,
             nama=namadepan+' '+namabelakang,
