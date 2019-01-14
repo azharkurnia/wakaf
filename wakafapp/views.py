@@ -3,7 +3,7 @@ from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+import random, string
 
 # Create your views here.
 response = {}
@@ -89,6 +89,11 @@ def artikel(request):
 
 @csrf_exempt
 def add_donatur(request):
+    try:
+        last_id = int(Donatur.objects.last().pk) + 1
+    except:
+        last_id = 1
+    id_transaksi = '#'.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6))
 
     if (request.method == 'POST'):
         nominal = request.POST['nominal']
@@ -100,7 +105,8 @@ def add_donatur(request):
         alamat = request.POST['alamat']
         birth = request.POST['birthdate']
         domisili = request.POST['domisili']
-
+        id_transaksi = id_transaksi+'-'+last_id
+        kode_transfer = random.randint(0,100)
         donatur = Donatur(
             nominal=nominal,
             nama=namadepan+' '+namabelakang,
@@ -109,7 +115,10 @@ def add_donatur(request):
             kelamin=kelamin,
             alamat=alamat,
             birth=birth,
-            domisili=domisili
+            domisili=domisili,
+            id_transaksi=id_transaksi,
+            kode_transfer=kode_transfer,
+            jumlah_donasi=nominal+kode_transfer
         )
         donatur.save()
         print(Donatur.objects.all().count())

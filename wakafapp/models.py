@@ -22,6 +22,7 @@ class Donatur(models.Model):
     domisili = models.CharField(max_length=140, blank=False)
     id_transaksi = models.TextField(blank=False, default='null')
     kode_transfer = models.CharField(max_length=10, blank=False, default='null')
+    jumlah_donasi = models.IntegerField(blank=False, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
 
 

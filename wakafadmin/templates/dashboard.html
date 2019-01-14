@@ -16,7 +16,10 @@
                 <table class="table table-bordered table-cantik" id="registrantTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th>Jumlah</th>
+                        <th>ID Transaksi</th>
+                        <th>Nominal</th>
+                        <th>Kode Transfer</th>
+                        <th>Jumlah Donasi</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
                         <th>Tanggal Lahir</th>
@@ -29,7 +32,10 @@
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>Jumlah</th>
+                        <th>ID Transaksi</th>
+                        <th>Nominal</th>
+                        <th>Kode Transfer</th>
+                        <th>Jumlah Donasi</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
                         <th>Tanggal Lahir</th>
@@ -43,7 +49,10 @@
                     <tbody class="table-cantik">
                     {% for donatur in donaturList %}
                         <tr>
+                            <td>{{ donatur.id_transaksi }}</td>
                             <td>Rp {{ donatur.nominal }}</td>
+                            <td>{{ donatur.kode_transfer }}</td>
+                            <td>Rp {{ donatur.jumlah_donasi }}</td>
                             <td>{{ donatur.nama }}</td>
                             <td>{{ donatur.kelamin }}</td>
                             <td>{{ donatur.birth }}</td>
