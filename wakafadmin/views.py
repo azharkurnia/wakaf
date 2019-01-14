@@ -1,5 +1,6 @@
 from django.core.mail import EmailMessage
 from django.contrib import messages
+from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
@@ -24,6 +25,16 @@ def tables(request):
     donaturList = Donatur.objects.all()
     response['donaturList'] = donaturList
     response['volunteerList'] = Volunteer.objects.all()
+    # pesan = 'Test email wakaf'
+    # email = EmailMessage(
+    #     'Hello azhar',
+    #     pesan,
+    #     'info@wakaf.paii.co.id',
+    #     ['azharkurnia19@gmail.com'],
+    #     headers={'Message-ID': 'foo'}
+    # )
+    # email.send(fail_silently=False)
+    #
     return render(request, 'dashboard.html', response)
 
 
@@ -146,7 +157,7 @@ def deleteCarouselHome(request, image_id):
     fs.delete(foto.namaFile)
     foto.delete()
     print("hapus gambar")
-    return redirect('wakafadmin:tables')
+    return redirect('wakafadmin:pageCarouselHome')
 
 @login_required
 @csrf_exempt
