@@ -105,7 +105,7 @@ def add_donatur(request):
         alamat = request.POST['alamat']
         birth = request.POST['birthdate']
         domisili = request.POST['domisili']
-        id_transaksi = id_transaksi+'-'+last_id
+        id_transaksi = id_transaksi+'-'+str(last_id)
         kode_transfer = random.randint(1,100)
         donatur = Donatur(
             nominal=nominal,
