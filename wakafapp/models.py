@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class CarouselPortofolio(models.Model):
@@ -92,7 +93,7 @@ class Volunteer(models.Model):
     birth = models.CharField(max_length=140, blank=False)
     alamat = models.TextField(blank=False)
     domisili = models.CharField(max_length=140, blank=False)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(default=timezone.now())
 
 class DonasiCMS(models.Model):
     title = models.CharField(max_length=140, blank=False, default='null')

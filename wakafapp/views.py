@@ -153,7 +153,18 @@ def add_relawan(request):
         print('masuk saved')
         print(Volunteer.objects.all().count())
         # TODO: Redirect ke page Thank you
-    return HttpResponseRedirect(reverse('wakafapp:volunteer'))
+        return thankyou(request, volunteer)
+
+def thankyou(request, data=None):
+
+
+    if data:
+        print(data.kegiatan)
+        data = data.__dict__
+        print(data)
+    return render(request, "thankyou.html", data)
+
+
 
 def coba(request):
     a = Parent.objects.all().delete()

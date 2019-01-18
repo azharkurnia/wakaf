@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'aboutUs/$', aboutUs, name='aboutUs'),
     url(r'^add_donatur/', add_donatur, name='add_donatur'),
     url(r'^add_relawan/', add_relawan, name='add_relawan'),
+    url(r'thankyou/$', thankyou, name='thankyou'),
     url(r'coba/$', coba, name='coba'),
 ]
