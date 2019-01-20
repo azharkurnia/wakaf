@@ -22,9 +22,9 @@ class Donatur(models.Model):
     alamat = models.CharField(max_length=300, blank=False)
     domisili = models.CharField(max_length=140, blank=False)
     id_transaksi = models.TextField(blank=False, default='null')
-    kode_transfer = models.CharField(max_length=10, blank=False, default='null')
+    kode_transfer = models.IntegerField(blank=False, default=0)
     jumlah_donasi = models.IntegerField(blank=False, default=0)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(default=timezone.now())
 
 
 class Layanan(models.Model):
@@ -98,6 +98,11 @@ class Volunteer(models.Model):
 class DonasiCMS(models.Model):
     title = models.CharField(max_length=140, blank=False, default='null')
     konten = models.TextField(blank=False, default='null')
+
+class BuktiTransfer(models.Model):
+    id_transaksi = models.TextField(blank=False, default='null')
+    namaFile = models.TextField(blank=False, default='null')
+    urlFoto = models.URLField()
 
 class Parent(models.Model):
     nama = models.TextField(blank=False)

@@ -18,13 +18,44 @@
 
                                 <div class="subheading1 subheading1-info-artikel"><h4><b>{{ artikel.parent.judul }}</b>    </h4></div>
                                 <p class="subheading2 card-text subheading2-info-artikel">{{ artikel.parent.konten_short }}</p>
-                                <p class="custom-book" style="text-align:right;padding-right:4%;color: #5E9A78" data-toggle="modal" data-target="#myModal{{ artikel.parent.pk }}">... Baca Selengkapnya</p>
+                                <p class="custom-book" style="text-align:right;padding-right:4%;color: #5E9A78" data-toggle="modal" data-target="#artikel-rekomen{{ artikel.parent.pk }}">... Baca Selengkapnya</p>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
+
+        {% for artikel in listArtikelRekomendasi %}
+            <div class="modal fade" id="artikel-rekomen{{ artikel.parent.pk }}">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <img src="{{ artikel.parent.urlFoto }}" class="img-modal">
+
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="main">
+                                <h5 class="text-center">{{ artikel.parent.judul }}</h5>
+
+                                <p style="text-align: justify">{{ artikel.parent.konten }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
 
         <div class="container-fluid" style="margin-top: 5%">
             {% for artikel in listArtikel %}

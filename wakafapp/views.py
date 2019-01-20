@@ -4,6 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import random, string
+from django.core.files.storage import FileSystemStorage
+
 
 # Create your views here.
 response = {}
@@ -96,7 +98,7 @@ def add_donatur(request):
     id_transaksi = '#'+''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6))
 
     if (request.method == 'POST'):
-        nominal = request.POST['nominal']
+        nominal = int(request.POST['nominal'])
         namadepan = request.POST['namadepan']
         namabelakang = request.POST['namabelakang']
         email = request.POST['email']
@@ -105,8 +107,8 @@ def add_donatur(request):
         alamat = request.POST['alamat']
         birth = request.POST['birthdate']
         domisili = request.POST['domisili']
-        id_transaksi = id_transaksi+'-'+str(last_id)
-        kode_transfer = random.randint(1,100)
+        id_transaksi = id_transaksi+'00'+str(last_id)
+        kode_transfer = int(random.randint(1,100))
         donatur = Donatur(
             nominal=nominal,
             nama=namadepan+' '+namabelakang,
@@ -118,12 +120,21 @@ def add_donatur(request):
             domisili=domisili,
             id_transaksi=id_transaksi,
             kode_transfer=kode_transfer,
-            jumlah_donasi=nominal+kode_transfer
+            jumlah_donasi=int(nominal+kode_transfer)
         )
         donatur.save()
         print(Donatur.objects.all().count())
         # TODO: Redirect ke page Thank you
+        return thankyouDonasi(request, donatur)
     return HttpResponseRedirect(reverse('wakafapp:home'))
+
+def thankyouDonasi(request, data=None):
+    if data:
+        data = data.__dict__
+        return render(request, "thankyouDonasi.html", data)
+
+    else:
+        return home(request)
 
 @csrf_exempt
 def add_relawan(request):
@@ -152,17 +163,41 @@ def add_relawan(request):
         volunteer.save()
         print('masuk saved')
         print(Volunteer.objects.all().count())
-        # TODO: Redirect ke page Thank you
-        return thankyou(request, volunteer)
-
-def thankyou(request, data=None):
+        return thankyouVolunteer(request, volunteer)
 
 
+def thankyouVolunteer(request, data=None):
     if data:
-        print(data.kegiatan)
         data = data.__dict__
-        print(data)
-    return render(request, "thankyou.html", data)
+        return render(request, "thankyouVolunteer.html", data)
+
+    else:
+        return volunteer(request)
+
+def konfirmasi(request):
+    return render(request, "konfirmasi.html")
+
+def thankyouKonfirmasi(request):
+    return render(request, 'thankyouKonfirmasi.html')
+
+@csrf_exempt
+def addBuktiTransfer(request):
+    fs = FileSystemStorage()
+    if request.method == 'POST' and request.FILES['bukti_transfer']:
+        myfile = request.FILES['bukti_transfer']
+        # print(myfile,type(myfile))
+        # print(myfile.name, type(myfile.name))
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        buktiTransfer = BuktiTransfer(
+            id_transaksi=request.POST['id_transaksi'],
+            namaFile=myfile.name,
+            urlFoto=uploaded_file_url
+        )
+        buktiTransfer.save()
+        print("simpan bukti trr")
+        return thankyouKonfirmasi(request)
+    return konfirmasi(request)
 
 
 

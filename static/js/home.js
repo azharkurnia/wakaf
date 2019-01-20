@@ -4,7 +4,7 @@ $(document).ready(function(){
 });
 
 $('.owl1').owlCarousel({
-    autoplay:false,
+    autoplay:true,
     loop:true,
     nav:true,
     autoWidth:true,

@@ -1,0 +1,109 @@
+{% extends "layout/base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+
+    <body>
+    {% if kegiatan %}
+        <div class="container-fluid p-5" style="background-color: rgb(219,235,216);">
+        <h4 class="text-center mb-4 custom-bold"><b>Assalamu'alaikum Warrahmatullahi Wabarakaatuh</b></h4>
+        <p class="text-center custom-medium" style="color: rgb(65,76,98);">
+            Alhamdulillah, formulir relawan dari {{ kelamin }} {{ nama }} telah kami terima. <br>
+        </p>
+        <p class="custom-book">
+            Kami mengucapkan terima kasih kepada {{ kelamin }} {{ nama }} karena telah mendaftarkan diri sebagai relawan
+            kepada Yayasan Wakaf Produktif - Pengelola Aset Islami Indonesia.<br>
+            Berikut adalah data diri {{ kelamin }} {{ nama }}:
+        </p>
+        <div class="row">
+
+            <div class="col-md-2">Kegiatan</div>
+            <div class="col-md-10">: <b>{{ kegiatan }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Tanggal Pendaftaran</div>
+            <div class="col-md-10">: <b>{{ created_on }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Nama</div>
+            <div class="col-md-10">: <b>{{ nama }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Tanggal Lahir</div>
+            <div class="col-md-10">: <b>{{ birth }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Alamat</div>
+            <div class="col-md-10">: <b>{{ alamat }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Domisili</div>
+            <div class="col-md-10">: <b>{{ domisili }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Email</div>
+            <div class="col-md-10">: <b>{{ email }}</b></div>
+        </div>
+
+    {% endif %}
+
+
+    <p>Terima kasih atas partisipasinya. Tim kami akan segera menghubungi Anda. Untuk informasi lebih lanjut, hubungi kami di info@wakaf.paii.co.id</p>
+    </div>
+    <style>
+
+        .heading {
+            font-family: CircularStd-Black;
+            color: #5E9A78;
+        }
+
+        .subheading1 {
+            font-family: CircularStd-Bold
+        }
+
+        .subheading2 {
+            font-family: CircularStd-Book
+        }
+
+        {
+            font-family: CircularStd-Medium
+        }
+        .margin5 {
+            margin-top: 5vh;
+        }
+        .margin-2 {
+            margin-top: -2vh;
+        }
+        .mapouter-small {
+            display: inline-block;
+        }
+        .mapouter-big {
+            display: inline-block;
+        }
+
+        .custom-book {
+            font-family: CircularStd-Book !important;
+        }
+
+        .custom-bold {
+            font-family: CircularStd-Bold !important;
+        }
+
+        .custom-black {
+            font-family: CircularStd-Black !important;
+        }
+
+        .custom-medium {
+            font-family: CircularStd-Medium !important;
+        }
+
+        #button-konfirmasi{
+            color: white;
+            background-color: #5E9A78;
+            border-radius: 15px;
+        }
+    </style>
+    </body>
+{% endblock %}
+
+
