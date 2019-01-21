@@ -487,7 +487,7 @@ def paidSlide(request, paid_id):
                 + 'Konfirmasi donasi ' + kelamin + ' ' + namaPeserta +' telah kami terima dan berikut kami sampaikan kuitansi pembayaran donasi dengan rincian:\n\n' \
                 + 'Kuitansi Donasi\n' \
                 + 'Nama Lengkap: ' + namaPeserta + '\n' + 'Nomor Transaksi: ' + idTransaksi + '\n' \
-                + 'Total Donasi: Rp' + str(donasi) + '\n\n' \
+                + 'Total Donasi: Rp ' + str(donasi) + '\n\n' \
                 + 'Jazakumullah khairan katsiran. Wa jazakumullah ahsanal jaza\n' \
                 + '“Semoga Allah SWT akan membalas kamu dengan kebaikan yang banyak dan semoga Allah SWT membalas kamu dengan balasan yang terbaik”\n' \
                 + 'Kami mengucapkan terimakasih atas kepercayaan '+ kelamin + ' kepada yayasan kami.\n' \
