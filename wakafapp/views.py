@@ -139,9 +139,9 @@ def add_donatur(request):
                 + 'Kode Unik: ' + str(kode_transfer) +'\n' \
                 + 'Nominal Transfer: Rp ' + str(int(nominal+kode_transfer)) + '\n\n' \
                 + 'Silahkan melanjutkan pembayaran donasi ke rekening kami:\n' \
-                + 'Nama Bank: CIMB Niaga Syariah\n' \
-                + 'No. Rekening: 123456789\n' \
-                + 'Atas Nama: Yayasan Wakaf Produktif - Pengelola Aset Islami Indonesia\n\n' \
+                + 'Bank CIMB Niaga Syariah\n' \
+                + 'No. Rekening: 761868208100\n' \
+                + 'Atas Nama: YAYASAN WAKAF PRODUKTIF PENGELOLA ASET ISLAMI INDONESIA\n\n' \
                 + 'Setelah anda melakukan pembayaran, silahkan lakukan konfirmasi di http://wakaf.paii.co.id/konfirmasi\n\n' \
                 + 'Untuk informasi lebih lanjut, anda dapat menghubungi:\n' \
                 + 'Call Center: 021-123456\n' \
