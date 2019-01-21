@@ -37,7 +37,7 @@ def aboutUs(request):
     return render(request, "aboutUs.html")
 
 def volunteer(request):
-    listKegiatanVolunteer = KegiatanVolunteer.objects.all()
+    listKegiatanVolunteer = KegiatanVolunteer.objects.all().order_by('-pk')
     response['listKegiatanVolunteer'] = listKegiatanVolunteer
     page = request.GET.get('page', 1)
     paginator = Paginator(listKegiatanVolunteer, 3)
@@ -64,7 +64,7 @@ def volunteer(request):
     return render(request, "volunteer.html",response)
 
 def artikel(request):
-    listArtikel = Artikel.objects.all()
+    listArtikel = Artikel.objects.all().order_by('-pk')
     response['listArtikelRekomendasi'] = ArtikelRekomendasi.objects.all()
     page = request.GET.get('page',1)
     paginator = Paginator(listArtikel, 3)
