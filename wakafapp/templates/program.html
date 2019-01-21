@@ -33,7 +33,7 @@
                         <div class="card-body">
 
                             <div class="custom-bold"><h4><b>{{ program.judul }}</b></h4></div>
-                            <p class="card-text custom-book">{{ program.konten }}</p>
+                            <p class="card-text custom-book">{{ program.konten|linebreaks }}</p>
                         </div>
 
                         <div class="card-footer" data-toggle="modal" data-target="#myModal{{ program.pk }}">

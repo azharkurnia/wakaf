@@ -17,7 +17,7 @@
                                 <li class="label"><p class="tags custom-book">{{ artikel.parent.tags }}</p></li>
 
                                 <div class="subheading1 subheading1-info-artikel"><h4><b>{{ artikel.parent.judul }}</b>    </h4></div>
-                                <p class="subheading2 card-text subheading2-info-artikel">{{ artikel.parent.konten_short }}</p>
+                                <p class="subheading2 card-text subheading2-info-artikel">{{ artikel.parent.konten_short|linebreaks }}</p>
                                 <p class="custom-book pointer" style="text-align:right;padding-right:4%;color: #5E9A78" data-toggle="modal" data-target="#artikel-rekomen{{ artikel.parent.pk }}">... Baca Selengkapnya</p>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="main">
                                 <h5 class="text-center">{{ artikel.parent.judul }}</h5>
 
-                                <p style="text-align: justify">{{ artikel.parent.konten }}</p>
+                                <p style="text-align: justify">{{ artikel.parent.konten|linebreaks }}</p>
                             </div>
                         </div>
 
@@ -66,7 +66,7 @@
                         <img src="{{ artikel.urlFoto }}" class="img-media-small mr-3 mb-3">
 
                         <h4 class="custom-bold">{{ artikel.judul }}</h4>
-                        <p class="custom-book">{{ artikel.konten_short }}</p>
+                        <p class="custom-book">{{ artikel.konten_short|linebreaks }}</p>
                         <p class="custom-book pointer" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal{{ artikel.pk }}">... Baca Selengkapnya</p>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                                 <div class="main">
                                     <h5 class="text-center">{{ artikel.judul }}</h5>
 
-                                    <p style="text-align: justify">{{ artikel.konten }}</p>
+                                    <p style="text-align: justify">{{ artikel.konten|linebreaks }}</p>
                                 </div>
                             </div>
 

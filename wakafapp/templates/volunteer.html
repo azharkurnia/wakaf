@@ -101,7 +101,7 @@
                         <img src="{{ kegiatan.urlFoto }}" class="img-media-small mr-3 mb-3">
 
                         <h4 class="custom-bold">{{ kegiatan.judul }}</h4>
-                        <p class="custom-book">{{ kegiatan.konten_short }}</p>
+                        <p class="custom-book">{{ kegiatan.konten_short|linebreaks }}</p>
                         <p class="custom-book pointer" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal{{ kegiatan.pk }}">... Baca Selengkapnya</p>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                                 <div class="main">
                                     <h5 class="text-center">{{ kegiatan.judul }}</h5>
 
-                                    <p style="text-align: justify">{{ kegiatan.konten }}</p>
+                                    <p style="text-align: justify">{{ kegiatan.konten|linebreaks }}</p>
                                 </div>
                             </div>
 
