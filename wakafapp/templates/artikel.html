@@ -18,7 +18,7 @@
 
                                 <div class="subheading1 subheading1-info-artikel"><h4><b>{{ artikel.parent.judul }}</b>    </h4></div>
                                 <p class="subheading2 card-text subheading2-info-artikel">{{ artikel.parent.konten_short }}</p>
-                                <p class="custom-book" style="text-align:right;padding-right:4%;color: #5E9A78" data-toggle="modal" data-target="#artikel-rekomen{{ artikel.parent.pk }}">... Baca Selengkapnya</p>
+                                <p class="custom-book pointer" style="text-align:right;padding-right:4%;color: #5E9A78" data-toggle="modal" data-target="#artikel-rekomen{{ artikel.parent.pk }}">... Baca Selengkapnya</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -67,7 +67,7 @@
 
                         <h4 class="custom-bold">{{ artikel.judul }}</h4>
                         <p class="custom-book">{{ artikel.konten_short }}</p>
-                        <p class="custom-book" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal{{ artikel.pk }}">... Baca Selengkapnya</p>
+                        <p class="custom-book pointer" style="text-align:right;color: #5E9A78" data-toggle="modal" data-target="#myModal{{ artikel.pk }}">... Baca Selengkapnya</p>
                     </div>
                 </div>
 
@@ -186,17 +186,17 @@
             .owl-dots {display: none;}
 
         }
-
-        .artikel-rekomendasi{
-            padding-right: 6%;
-            padding-left: 10%;
-        }
-
-        @media only screen and (max-width: 1025px) {
-            .artikel-rekomendasi{
-                padding-left: 1%;
-            }
-        }
+        {##}
+        {#.artikel-rekomendasi{#}
+        {#    padding-right: 6%;#}
+        {#    padding-left: 10%;#}
+        {#}#}
+        {##}
+        {#        @media only screen and (max-width: 1025px) {#}
+        {#            .artikel-rekomendasi{#}
+        {#                padding-left: 1%;#}
+        {#            }#}
+        {#        }#}
 
         .tags {
             background:     #EAF9F4;
@@ -278,6 +278,9 @@
             display: none;
         }
 
+        .pointer {
+            cursor: pointer;
+        }
 
     </style>
 

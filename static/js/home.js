@@ -1,5 +1,7 @@
 $(document).ready(function(){
     $(".owl1").owlCarousel();
+});
+$(document).ready(function(){
     $(".owl2").owlCarousel();
 });
 
