@@ -540,7 +540,7 @@ def resend(request, paid_id):
     email = EmailMessage(
         'Pembayaran Donasi Berhasil Diverifikasi',
         pesan,
-        'info@wakaf.paii.co.di',
+        'info@wakaf.paii.co.id',
         [emailUser],
         headers={'Message-ID': 'foo'}
     )
