@@ -4,6 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import random, string
+from django.core.mail import EmailMessage, send_mail
+
 from django.core.files.storage import FileSystemStorage
 
 
@@ -101,18 +103,19 @@ def add_donatur(request):
         nominal = int(request.POST['nominal'])
         namadepan = request.POST['namadepan']
         namabelakang = request.POST['namabelakang']
-        email = request.POST['email']
+        emailUser = request.POST['email']
         noHp = request.POST['nohandphone']
         kelamin = request.POST['kelamin']
         alamat = request.POST['alamat']
         birth = request.POST['birthdate']
         domisili = request.POST['domisili']
+        nama = namadepan +' '+namabelakang
         id_transaksi = id_transaksi+'00'+str(last_id)
         kode_transfer = int(random.randint(1,100))
         donatur = Donatur(
             nominal=nominal,
             nama=namadepan+' '+namabelakang,
-            email=email,
+            email=emailUser,
             noHp=noHp,
             kelamin=kelamin,
             alamat=alamat,
@@ -124,7 +127,40 @@ def add_donatur(request):
         )
         donatur.save()
         print(Donatur.objects.all().count())
+        pesan = "Assalamu'alaikum Warrahmatullahi Wabarakaatuh \n" \
+                + 'Alhamdulillah, kami mengucapkan terima kasih kepada ' + kelamin + ' ' + nama + ' telah melakukan donasi kepada Yayasan Wakaf Produktif – Pengelola Aset Islami Indonesia.\n\n' \
+                + 'Berikut adalah rincian donasi ' + kelamin + ' ' + nama + '\n\n' \
+                + 'No Transaksi: ' + id_transaksi + '\n' \
+                + 'Nama: ' + nama+ '\n' \
+                + 'Tanggal Lahir: ' + birth +'\n' \
+                + 'Alamat: ' + alamat + '\n' \
+                + 'Domisili: ' + domisili + '\n' \
+                + 'Jumlah Donasi: Rp ' + str(nominal) +'\n' \
+                + 'Kode Unik: ' + str(kode_transfer) +'\n' \
+                + 'Nominal Transfer: Rp ' + str(int(nominal+kode_transfer)) + '\n\n' \
+                + 'Silahkan melanjutkan pembayaran donasi ke rekening kami:\n' \
+                + 'Nama Bank: CIMB Niaga Syariah\n' \
+                + 'No. Rekening: 123456789\n' \
+                + 'Atas Nama: Yayasan Wakaf Produktif - Pengelola Aset Islami Indonesia\n\n' \
+                + 'Setelah anda melakukan pembayaran, silahkan lakukan konfirmasi di http://wakaf.paii.co.id/konfirmasi\n\n' \
+                + 'Untuk informasi lebih lanjut, anda dapat menghubungi:\n' \
+                + 'Call Center: 021-123456\n' \
+                + 'SMS/WA: 0812-9060-9550\n' \
+                + 'Email: info@wakaf.paii.co.id\n' \
+                + 'Website: wakaf.paii.co.id\n\n'\
+                + "“Jazakumullah khairan katsiran. Wa jazakumullah ahsanal jaza”\n" \
+                + 'Yayasan Wakaf Produktif – Pengelola Aset Islami Indonesia'
+        email = EmailMessage(
+            'Informasi dan Langkah Donasi',
+            pesan,
+            'info@wakaf.paii.co.di',
+            [emailUser],
+            headers={'Message-ID': 'foo'}
+        )
+        email.send(fail_silently=False)
+        print("email sent")
         # TODO: Redirect ke page Thank you
+
         return thankyouDonasi(request, donatur)
     return HttpResponseRedirect(reverse('wakafapp:home'))
 

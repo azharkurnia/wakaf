@@ -25,6 +25,7 @@ class Donatur(models.Model):
     kode_transfer = models.IntegerField(blank=False, default=0)
     jumlah_donasi = models.IntegerField(blank=False, default=0)
     created_on = models.DateTimeField(default=timezone.now())
+    payment = models.BooleanField(default=False)
 
 
 class Layanan(models.Model):

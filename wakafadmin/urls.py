@@ -35,4 +35,7 @@ urlpatterns = [
     url(r'^pageKegiatanVolunteer/', pageKegiatanVolunteer, name='pageKegiatanVolunteer'),
     url(r'^addKegiatanVolunteer/', addKegiatanVolunteer, name='addKegiatanVolunteer'),
     url(r'^deleteKegiatanVolunteer/(?P<kegiatan_id>[0-9]+)/$', deleteKegiatanVolunteer, name='deleteKegiatanVolunteer'),
+    url(r'^paymentTables/', paymentTables, name='paymentTables'),
+    url(r'^paidSlide/(?P<paid_id>[0-9]+)/$', paidSlide, name='paidSlide'),
+    url(r'^resend/(?P<paid_id>[0-9]+)/$', resend, name='resend'),
 ]

@@ -1,0 +1,175 @@
+{% extends "navbarAdmin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+    <!-- Example DataTables Card-->
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Data Konfirmasi Transfer
+        </div>
+
+
+        <div class="card-body">
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-cantik" id="registrantTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>ID Transaksi</th>
+                        <th>Bukti Transfer</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>ID Transaksi</th>
+                        <th>Bukti Transfer</th>
+                    </tr>
+                    </tfoot>
+                    <tbody class="table-cantik">
+                    {% for bukti in buktiList %}
+                        <tr>
+                            <td>{{ bukti.id_transaksi }}</td>
+                            <td>
+                                <a href="{{ bukti.urlFoto }}">
+                                    <img src="{{ bukti.urlFoto }}" style="max-width: 50%;max-height: 50%">
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Pembayaran</div>
+        <div class="card-body">
+
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="paymentTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>ID Transaksi</th>
+                        <th>Nominal</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pembayaran</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>ID Transaksi</th>
+                        <th>Nominal</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pembayaran</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="tablePayment">
+                    {% for donatur in donaturList %}
+                        <tr>
+                            <td>{{ donatur.id_transaksi }}</td>
+                            <td>Rp {{ donatur.jumlah_donasi }}</td>
+                            <td>{{ donatur.nama}}</td>
+                            <td>{{ donatur.email }}</td>
+                            <td>
+                                {% if donatur.payment %}
+                                    <button class="tombol-resend" id="resend-{{ donatur.pk }}" onclick="resend('{{ donatur.email }}' , '{{ donatur.pk }}')">resend</button>
+                                {% else %}
+                                    <button class="tombol-konfirmasi" id="tombol-{{ donatur.pk }}" onclick="confirmation('{{ donatur.nama }}','{{ donatur.email }}' , '{{ donatur.pk }}')">konfirmasi</button>
+                                    <button style="display: none" class="tombol-resend" id="resend-{{ donatur.pk }}" onclick="resend('{{ donatur.email }}' , '{{ donatur.pk }}')">resend</button>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var confirmation = function(nama,email,id){
+            var answer = confirm("verifikasi pembayaran");
+            if(answer){
+                alert(nama + " telah terverifikasi, mengirim email ke " + email);
+                paidSlide(id);
+                document.getElementById("tombol-"+id).style.display = "none";
+                document.getElementById("resend-"+id).style.display = "flex";
+            }
+            else{
+                alert("tidak jadi verifikasi");
+            }
+        }
+
+        function resend(email, id) {
+            var answer = confirm("verifikasi pembayaran");
+            if(answer){
+                alert("mengirim ulang email ke " + email);
+                window.location.href = "/wakaf_admin/resend/"+id+"/";
+            }
+            else{
+                alert("tidak jadi email ulang");
+            }
+        }
+    </script>
+    <style type="text/css">
+        .tombol-konfirmasi {
+            background-color: rgb(248, 105, 65);
+            border: none;
+            color: rgb(230,230,230);
+            text-align: center;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 11vw;
+            height: 3vw;
+            font-size: 1.4vw;
+        }
+
+        @media screen and (max-width: 768px) {
+            .tombol-konfirmasi {
+                background-color: rgb(248, 105, 65);
+                border: none;
+                color: rgb(230,230,230);
+                text-align: center;
+                text-decoration: none;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                border-radius: 10px;
+                width: 22vw;
+                height: 6vw;
+                font-size: 3vw;
+            }
+        }
+
+        .tombol-konfirmasi:hover {
+            background-color: rgb(230,230,230);
+            color: rgb(248, 105, 65);
+        }
+
+        .tombol-resend {
+            background-color: black;
+            border: 0.5px solid black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .tombol-resend:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+{% endblock %}

@@ -32,29 +32,48 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="/wakaf_admin/tables">
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Tables</span>
                 </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents1">
+
+                    <li>
+                        <a href="/wakaf_admin/tables"> Donasi dan Volunteer</a>
+                    </li>
+                    <li>
+                        <a href="/wakaf_admin/paymentTables">Table Pembayaran</a>
+                    </li>
+
+                </ul>
             </li>
-{#            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">#}
-{#                <a class="nav-link" href="/wakaf_admin/paymentTables">#}
-{#                    <i class="fa fa-fw fa-table"></i>#}
-{#                    <span class="nav-link-text">Payment Tables</span>#}
-{#                </a>#}
-{#            </li>#}
+
+            {#            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">#}
+            {#                <a class="nav-link" href="/wakaf_admin/tables">#}
+            {#                    <i class="fa fa-fw fa-table"></i>#}
+            {#                    <span class="nav-link-text">Tables</span>#}
+            {#                </a>#}
+            {#            </li>#}
+            {##}
+            {##}
+            {#            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">#}
+            {#                <a class="nav-link" href="/wakaf_admin/paymentTables">#}
+            {#                    <i class="fa fa-fw fa-table"></i>#}
+            {#                    <span class="nav-link-text">Payment Table</span>#}
+            {#                </a>#}
+            {#            </li>#}
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">Edit Page</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
-                    <!-- <li>
-                      <a href="/tossaka_admin/acara">Acara</a>
-                    </li> -->
+
                     <li>
-                        <a href="/wakaf_admin/pageFotoDonasi">Gambar Donasi Home</a>
+                        <a href="/wakaf_admin/pageFotoDonasi"> Donasi Home</a>
                     </li>
                     <li>
                         <a href="/wakaf_admin/pageCarouselHome">Gambar Carousel Home</a>
@@ -68,7 +87,7 @@
                     <li>
                         <a href="/wakaf_admin/pageProgram">Edit Program Page</a>
                     </li>
-                     <li>
+                    <li>
                         <a href="/wakaf_admin/pageArtikel">Edit Artikel Page</a>
                     </li>
                     <li>
@@ -77,12 +96,6 @@
 
                 </ul>
             </li>
-{#            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">#}
-{#                <a class="nav-link" href="/tossaka_admin/qrCodeReader">#}
-{#                    <i class="fa fa-fw fa-link"></i>#}
-{#                    <span class="nav-link-text">QR Code Reader</span>#}
-{#                </a>#}
-{#            </li>#}
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -153,6 +166,15 @@
 <script src="{% static 'js/admin/sb-admin-charts.min.js' %}"></script>
 </div>
 </body>
+<script>
+    var paidSlide = function(id){
+        console.log(id);
+        $.ajax({
+            method: "GET",
+            url: "/wakaf_admin/paidSlide/"+id+"/",
+        });
+    }
+</script>
 <style type="text/css">
 
     #refresh {

@@ -456,3 +456,96 @@ def deleteKegiatanVolunteer(request, kegiatan_id):
     kegiatan.delete()
     return redirect('wakafadmin:pageKegiatanVolunteer')
 
+@login_required
+def paymentTables(request):
+    donatur = Donatur.objects.all()
+    bukti = BuktiTransfer.objects.all()
+    response['donaturList'] = donatur
+    response['buktiList'] = bukti
+    return render(request, 'payment_table.html', response)
+
+@login_required
+def paidSlide(request, paid_id):
+    print("slidepaid")
+    payment = Donatur.objects.get(pk=paid_id)
+    if (payment.payment):
+        payment.payment = False
+        payment.save()
+        print("false")
+    else:
+        payment.payment = True
+        print("true")
+        payment.save()
+        print("saved " + paid_id)
+        # blast email
+        idTransaksi = payment.id_transaksi
+        emailUser = payment.email
+        namaPeserta = payment.nama
+        kelamin = payment.kelamin
+        donasi = payment.jumlah_donasi
+        pesan = "Assalamu'alaikum Warrahmatullahi Wabarakaatuh \n"\
+                + 'Konfirmasi donasi ' + kelamin + ' ' + namaPeserta +' telah kami terima dan berikut kami sampaikan kuitansi pembayaran donasi dengan rincian:\n\n' \
+                + 'Kuitansi Donasi\n' \
+                + 'Nama Lengkap: ' + namaPeserta + '\n' + 'Nomor Transaksi: ' + idTransaksi + '\n' \
+                + 'Total Donasi: Rp' + str(donasi) + '\n\n' \
+                + 'Jazakumullah khairan katsiran. Wa jazakumullah ahsanal jaza\n' \
+                + '“Semoga Allah SWT akan membalas kamu dengan kebaikan yang banyak dan semoga Allah SWT membalas kamu dengan balasan yang terbaik”\n' \
+                + 'Kami mengucapkan terimakasih atas kepercayaan '+ kelamin + ' kepada yayasan kami.\n' \
+                + 'Insya Allah dengan donasi yang '+ kelamin + ' berikan akan kami teruskan kepada masyarakat yang membutuhkan.\n'\
+                + 'Anda dapat mengetahui dan memantau program kami lebih lanjut disini http://wakaf.paii.co.id/program\n\n' \
+                + 'Keterangan:\n' \
+                + 'Kuitansi donasi ini berfungsi sebagai lampiran SPT Tahunan Pajak Penghasilan, untuk pengurang Penghasilan Kena Pajak (PKP), sesuai dengan Peraturan Direktur Jendral Pajak Nomor PER-6/PJ/2011 dan Nomor PER-15/PJ/2012.\n\n' \
+                + "Wassalamu'alaikum Warrahmatullahi Wabarakaatuh\n" \
+                + 'Tertanda,\n' + 'Muhammad Shaddam \n' +'Keuangan Yayasan Wakaf Produktif – Pengelola Aset Islami Indonesia'
+        email = EmailMessage(
+            'Pembayaran Donasi Berhasil Diverifikasi',
+            pesan,
+            'info@wakaf.paii.co.id',
+            [emailUser],
+            headers={'Message-ID': 'foo'}
+        )
+        email.send(fail_silently=False)
+        print("email sent")
+    return render(request, 'payment_table.html', response)
+
+
+@login_required
+def resend(request, paid_id):
+    print("resend")
+    payment = Donatur.objects.get(pk=paid_id)
+    payment.payment = True
+    print("true")
+    payment.save()
+    print("saved " + paid_id)
+    # blast email
+    idTransaksi = payment.id_transaksi
+    emailUser = payment.email
+    namaPeserta = payment.nama
+    kelamin = payment.kelamin
+    donasi = payment.jumlah_donasi
+    pesan = "Assalamu'alaikum Warrahmatullahi Wabarakaatuh \n" \
+            + 'Konfirmasi donasi ' + kelamin + ' ' + namaPeserta + ' telah kami terima dan berikut kami sampaikan kuitansi pembayaran donasi dengan rincian:\n\n' \
+            + 'Kuitansi Donasi\n' \
+            + 'Nama Lengkap: ' + namaPeserta + '\n' + 'Nomor Transaksi: ' + idTransaksi + '\n' \
+            + 'Total Donasi: Rp' + str(donasi) + '\n\n' \
+            + 'Jazakumullah khairan katsiran. Wa jazakumullah ahsanal jaza\n' \
+            + '“Semoga Allah SWT akan membalas kamu dengan kebaikan yang banyak dan semoga Allah SWT membalas kamu dengan balasan yang terbaik”\n' \
+            + 'Kami mengucapkan terimakasih atas kepercayaan ' + kelamin + ' kepada yayasan kami.\n' \
+            + 'Insya Allah dengan donasi yang ' + kelamin + ' berikan akan kami teruskan kepada masyarakat yang membutuhkan.\n' \
+            + 'Anda dapat mengetahui dan memantau program kami lebih lanjut disini http://wakaf.paii.co.id/program\n\n' \
+            + 'Keterangan:\n' \
+            + 'Kuitansi donasi ini berfungsi sebagai lampiran SPT Tahunan Pajak Penghasilan, untuk pengurang Penghasilan Kena Pajak (PKP), sesuai dengan Peraturan Direktur Jendral Pajak Nomor PER-6/PJ/2011 dan Nomor PER-15/PJ/2012.\n\n' \
+            + "Wassalamu'alaikum Warrahmatullahi Wabarakaatuh\n" \
+            + 'Tertanda,\n' + 'Muhammad Shaddam \n' + 'Keuangan Yayasan Wakaf Produktif – Pengelola Aset Islami Indonesia'
+    email = EmailMessage(
+        'Pembayaran Donasi Berhasil Diverifikasi',
+        pesan,
+        'info@wakaf.paii.co.di',
+        [emailUser],
+        headers={'Message-ID': 'foo'}
+    )
+    email.send(fail_silently=False)
+    print("email sent")
+    return render(request, 'payment_table.html', response)
+
+
