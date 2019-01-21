@@ -153,12 +153,12 @@ def add_donatur(request):
         email = EmailMessage(
             'Informasi dan Langkah Donasi',
             pesan,
-            'info@wakaf.paii.co.di',
+            'info@wakaf.paii.co.id',
             [emailUser],
             headers={'Message-ID': 'foo'}
         )
         email.send(fail_silently=False)
-        print("email sent")
+        print("email kirim pertama")
         # TODO: Redirect ke page Thank you
 
         return thankyouDonasi(request, donatur)
