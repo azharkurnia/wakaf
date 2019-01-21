@@ -29,7 +29,7 @@ SECRET_KEY = '+1q^z!4_@^1!bpj2213)6vk2rd^sx1*=@r-86@kt(t(x)rq=2k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost','wakaf.paii.co.id','s148-72-209-24.secureserver.net']
 
 
 # Application definition
